@@ -1,0 +1,25 @@
+{
+  "name": "finalproject",
+  "version": "1.0.0",
+  "description": "group project for 307",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmdebarro/finalproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jmdebarro/finalproject/issues"
+  },
+  "homepage": "https://github.com/jmdebarro/finalproject#readme",
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "create-react-app": "^5.0.1"
+  }
+}
