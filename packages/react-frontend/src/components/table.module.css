@@ -1,0 +1,24 @@
+.item_box {
+    border: 1px solid black;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200%;
+    height: 20vh;
+}
+
+.image {
+    height: 80%;
+    width: 80%;
+    margin: 10%;
+    align-items: center;
+    background-color: lightblue;
+}
+
+.info {
+    align-items: center;
+    background-color: aliceblue;
+    width: 10vb;
+
+}
