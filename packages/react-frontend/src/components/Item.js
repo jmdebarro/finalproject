@@ -4,9 +4,17 @@ import style from "./table.module.css"
 function ItemBox(props) {
     return (
     <div key={props._id} className={style.item_box}>
-      {props.image}
-      {props.description}
-      {props.user}
+        <div className={style.image}>
+            {props.image}
+        </div>
+        <div className={style.info}>
+            <div className={style.description}>
+                {props.description}
+            </div>
+            <div className={style.user}>
+                {props.user}
+            </div>
+        </div>
     </div>
     )
 }

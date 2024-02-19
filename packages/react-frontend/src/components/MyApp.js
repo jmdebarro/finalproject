@@ -3,13 +3,13 @@ import MainComponent from "./Item";
 
 const items = [
   {
-    image: "here",
+    image: "IMAGE",
     user: "user",
     description: "This is item info",
     _id: "1234"
   },
   {
-    image: "there",
+    image: "IMAGE",
     user: "person",
     description: "This is item info",
     _id: "321"

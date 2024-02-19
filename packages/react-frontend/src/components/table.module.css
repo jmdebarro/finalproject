@@ -4,32 +4,37 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 200%;
-    height: 20vh;
-}
-
-.image {
-    height: 80%;
-    width: 80%;
-    margin: 10%;
-    align-items: center;
-    background-color: lightblue;
-}
-
-.info {
-    align-items: center;
-    background-color: aliceblue;
-    width: 10vb;
-
+    width: 25%;
+    height: 30vh;
 }
 
 .item_container {
     display: flex;
     flex-wrap: wrap;
-
   }
   
-.item_box {
-width: 25%;
-box-sizing: border-box;
+
+.image {
+    width: 70%;
+    height: 80%;
+    background-color: rgb(145, 180, 162);
+    margin: 5px;
+}
+
+.info {
+    display: flex;
+    align-items: column;
+    flex-direction: column;
+}
+
+.description {
+    background-color: rgb(16, 123, 82);
+    height: 90px;
+    margin: 5px;
+}
+
+.user {
+    background-color:rgb(168, 168, 195);
+    height: 40px;
+    margin: 5px;
 }
