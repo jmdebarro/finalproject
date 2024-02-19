@@ -22,3 +22,14 @@
     width: 10vb;
 
 }
+
+.item_container {
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+  
+.item_box {
+width: 25%;
+box-sizing: border-box;
+}

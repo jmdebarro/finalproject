@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOMClient from "react-dom/client";
 import MyApp from "./components/MyApp";
+import Navbar from "./components/Navbar"
 
 const container = document.getElementById("root");
 
@@ -8,4 +9,7 @@ const container = document.getElementById("root");
 const root = ReactDOMClient.createRoot(container);
 
 // Initial render:
-root.render(<MyApp />);
+root.render(<>
+            <Navbar/>
+            <MyApp />
+            </>);

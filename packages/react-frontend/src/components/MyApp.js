@@ -1,5 +1,5 @@
-import Navbar from "./Navbar.js";
-import Table from "./Table.js";
+import  Table from "./Table";
+import MainComponent from "./Item";
 
 const items = [
   {
@@ -19,8 +19,7 @@ const items = [
 function MyApp() {
   return (
     <div className={"container"}>
-      <Navbar />
-      <Table itemData={items} />
+      <MainComponent itemData={items}/>
     </div>
   );
 }
