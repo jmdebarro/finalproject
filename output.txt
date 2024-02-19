@@ -1,0 +1,294 @@
+ Volume in drive C is Local Disk
+ Volume Serial Number is 42B9-3C0F
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject
+
+02/19/2024  03:12 PM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  09:58 AM               391 .editorconfig
+02/19/2024  09:58 AM                14 .gitignore
+02/19/2024  09:58 AM                69 .prettierrc
+02/19/2024  03:12 PM                 0 output.txt
+02/19/2024  09:58 AM           685,207 package-lock.json
+02/19/2024  01:52 PM               730 package.json
+02/19/2024  09:58 AM    <DIR>          packages
+02/19/2024  09:58 AM                39 README.md
+               7 File(s)        686,450 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git
+
+02/19/2024  03:12 PM    <DIR>          ..
+02/19/2024  09:58 AM               300 config
+02/19/2024  09:58 AM                73 description
+02/19/2024  01:37 PM                93 FETCH_HEAD
+02/19/2024  01:37 PM                30 HEAD
+02/19/2024  09:58 AM    <DIR>          hooks
+02/19/2024  01:38 PM             2,914 index
+02/19/2024  09:58 AM    <DIR>          info
+02/19/2024  09:58 AM    <DIR>          logs
+02/19/2024  01:37 PM    <DIR>          objects
+02/19/2024  01:37 PM                41 ORIG_HEAD
+02/19/2024  09:58 AM               112 packed-refs
+02/19/2024  09:58 AM    <DIR>          refs
+               7 File(s)          3,563 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\hooks
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  09:58 AM               478 applypatch-msg.sample
+02/19/2024  09:58 AM               896 commit-msg.sample
+02/19/2024  09:58 AM             4,726 fsmonitor-watchman.sample
+02/19/2024  09:58 AM               189 post-update.sample
+02/19/2024  09:58 AM               424 pre-applypatch.sample
+02/19/2024  09:58 AM             1,643 pre-commit.sample
+02/19/2024  09:58 AM               416 pre-merge-commit.sample
+02/19/2024  09:58 AM             1,374 pre-push.sample
+02/19/2024  09:58 AM             4,898 pre-rebase.sample
+02/19/2024  09:58 AM               544 pre-receive.sample
+02/19/2024  09:58 AM             1,492 prepare-commit-msg.sample
+02/19/2024  09:58 AM             2,783 push-to-checkout.sample
+02/19/2024  09:58 AM             2,308 sendemail-validate.sample
+02/19/2024  09:58 AM             3,650 update.sample
+              14 File(s)         25,821 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\info
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  09:58 AM               240 exclude
+               1 File(s)            240 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\logs
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  01:37 PM               692 HEAD
+02/19/2024  09:58 AM    <DIR>          refs
+               1 File(s)            692 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\logs\refs
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  01:37 PM    <DIR>          heads
+02/19/2024  09:58 AM    <DIR>          remotes
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\logs\refs\heads
+
+02/19/2024  01:37 PM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  01:37 PM               159 AriannaBranch
+02/19/2024  01:37 PM               347 main
+               2 File(s)            506 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\logs\refs\remotes
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  01:36 PM    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\logs\refs\remotes\origin
+
+02/19/2024  01:36 PM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  09:58 AM               183 HEAD
+02/19/2024  01:36 PM               160 main
+               2 File(s)            343 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects
+
+02/19/2024  01:37 PM    <DIR>          .
+02/19/2024  01:36 PM    <DIR>          34
+02/19/2024  01:36 PM    <DIR>          48
+02/19/2024  01:36 PM    <DIR>          5f
+02/19/2024  01:36 PM    <DIR>          81
+02/19/2024  01:36 PM    <DIR>          95
+02/19/2024  01:36 PM    <DIR>          a0
+02/19/2024  01:36 PM    <DIR>          bd
+02/19/2024  01:36 PM    <DIR>          de
+02/19/2024  01:36 PM    <DIR>          fb
+02/19/2024  09:58 AM    <DIR>          info
+02/19/2024  09:58 AM    <DIR>          pack
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects\34
+
+02/19/2024  01:36 PM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          ..
+02/19/2024  01:36 PM               185 0477870730cbeff6cb029d020427ff79ef8a00
+               1 File(s)            185 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects\48
+
+02/19/2024  01:36 PM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          ..
+02/19/2024  01:36 PM                93 890b261c056cb2ecf4b592739374c4bb4ef47a
+               1 File(s)             93 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects\5f
+
+02/19/2024  01:36 PM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          ..
+02/19/2024  01:36 PM               311 05fa8dbbfdac40b981484f2624d30f91ec82df
+               1 File(s)            311 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects\81
+
+02/19/2024  01:36 PM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          ..
+02/19/2024  01:36 PM               255 ff1db628a2df176ac56c1fb0452b16cb0e3e30
+               1 File(s)            255 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects\95
+
+02/19/2024  01:36 PM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          ..
+02/19/2024  01:36 PM               174 42210d5342c5705bdee4fcaa23cd4d472f370a
+               1 File(s)            174 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects\a0
+
+02/19/2024  01:36 PM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          ..
+02/19/2024  01:36 PM               257 ba4e72d612ff233757f34e3d093becef35378b
+               1 File(s)            257 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects\bd
+
+02/19/2024  01:36 PM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          ..
+02/19/2024  01:36 PM               208 e927599221a3b3f941a2675b99062070928365
+               1 File(s)            208 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects\de
+
+02/19/2024  01:36 PM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          ..
+02/19/2024  01:36 PM               291 2c28396bee8fe70a33497a2ff8dfbf950e6def
+               1 File(s)            291 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects\fb
+
+02/19/2024  01:36 PM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          ..
+02/19/2024  01:36 PM               150 fc39f4e4bdd58470a51746b898f0fc66a77ab7
+               1 File(s)            150 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects\info
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\objects\pack
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          ..
+02/19/2024  09:58 AM             2,948 pack-0f93d46c67fff5054ae26455713b53edcc9f02cc.idx
+02/19/2024  09:58 AM           217,666 pack-0f93d46c67fff5054ae26455713b53edcc9f02cc.pack
+02/19/2024  09:58 AM               320 pack-0f93d46c67fff5054ae26455713b53edcc9f02cc.rev
+               3 File(s)        220,934 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\refs
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  01:37 PM    <DIR>          heads
+02/19/2024  09:58 AM    <DIR>          remotes
+02/19/2024  09:58 AM    <DIR>          tags
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\refs\heads
+
+02/19/2024  01:37 PM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  01:37 PM                41 AriannaBranch
+02/19/2024  01:37 PM                41 main
+               2 File(s)             82 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\refs\remotes
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  01:36 PM    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\refs\remotes\origin
+
+02/19/2024  01:36 PM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  09:58 AM                30 HEAD
+02/19/2024  01:36 PM                41 main
+               2 File(s)             71 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\.git\refs\tags
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\packages
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  03:12 PM    <DIR>          ..
+02/19/2024  01:44 PM    <DIR>          express-backend
+02/19/2024  09:58 AM    <DIR>          react-frontend
+               0 File(s)              0 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\packages\express-backend
+
+02/19/2024  01:44 PM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  01:43 PM             2,722 backend.js
+02/19/2024  01:50 PM               449 package.json
+02/07/2024  09:52 PM             1,244 user-services.js
+02/07/2024  01:32 PM               506 user.js
+               4 File(s)          4,921 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\packages\react-frontend
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  09:58 AM               333 .gitignore
+02/19/2024  09:58 AM               855 package.json
+02/19/2024  09:58 AM    <DIR>          public
+02/19/2024  09:58 AM             3,429 README.md
+02/19/2024  09:58 AM    <DIR>          src
+               3 File(s)          4,617 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\packages\react-frontend\public
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  09:58 AM             3,870 favicon.ico
+02/19/2024  09:58 AM             1,764 index.html
+02/19/2024  09:58 AM             5,347 logo192.png
+02/19/2024  09:58 AM             9,664 logo512.png
+02/19/2024  09:58 AM               517 manifest.json
+02/19/2024  09:58 AM                70 robots.txt
+               6 File(s)         21,232 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\packages\react-frontend\src
+
+02/19/2024  09:58 AM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  01:37 PM    <DIR>          components
+02/19/2024  09:58 AM               379 index.css
+02/19/2024  09:58 AM               386 index.js
+02/19/2024  09:58 AM             2,632 logo.svg
+               3 File(s)          3,397 bytes
+
+ Directory of C:\Users\Arianna\OneDrive\Desktop\calpoly\csc307\finalproject\packages\react-frontend\src\components
+
+02/19/2024  01:37 PM    <DIR>          .
+02/19/2024  09:58 AM    <DIR>          ..
+02/19/2024  01:37 PM               755 Item.js
+02/19/2024  01:37 PM               459 MyApp.js
+02/19/2024  09:58 AM               673 Navbar.js
+02/19/2024  09:58 AM               839 navbar.module.css
+02/19/2024  09:58 AM               999 Table.js
+02/19/2024  01:37 PM               638 table.module.css
+               6 File(s)          4,363 bytes
+
+     Total Files Listed:
+              72 File(s)        979,156 bytes
+              88 Dir(s)  866,419,851,264 bytes free
