@@ -12,12 +12,8 @@ mongoose
 
 function getItems(name, job) {
   let promise;
-  if (name === undefined && job === undefined) {
+  if (name === undefined) {
     promise = itemModel.find();
-  } else if (name && !job) {
-    promise = findItemByName(name);
-  } else if (job && !name) {
-    promise = findItemByJob(job);
   }
   return promise;
 }
@@ -36,14 +32,6 @@ function findItemByName(name) {
   return itemModel.find({ name: name });
 }
 
-function findItemByJob(job) {
-  return itemModel.find({ job: job });
-}
-
-function findItemByNameAndJob(name, job) {
-  return itemModel.find({ name: name, job: job });
-}
-
 
 function deleteItemById(id) {
   return itemModel.findByIdAndDelete(id);
@@ -54,7 +42,5 @@ export default {
   getItems,
   findItemById,
   findItemByName,
-  findItemByJob,
-  findItemByNameAndJob,
   deleteItemById,
 };
