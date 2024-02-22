@@ -4,19 +4,37 @@ import itemModel from "./item.js";
 mongoose.set("debug", true);
 
 mongoose
-  .connect("mongodb://localhost:27017/items", {
+  .connect("mongodb://127.0.0.1:27017/freeStuff", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .catch((error) => console.log(error));
 
-function getItems(name, job) {
+function getItems(filters, user) {
   let promise;
-  if (name === undefined) {
-    promise = itemModel.find();
+  console.log("Here");
+  if ((filters === undefined) && (user === undefined)) {
+    console.log("There");
+    promise = itemModel.find({});
+  } else if (filters && !user) {
+    promise = findItemByFilters(filters);
+  } else if (user && !filters) {
+    promise = findItemByUser(user);
+  } else {
+    promise = itemModel.find({ filter: { $in: filters }, user: user });
   }
   return promise;
 }
+
+
+function findItemByUser(user) {
+  return itemModel.find({ user: user });
+}
+
+function findItemByFilters(filters) {
+  return itemModel.find({ filters: filters });
+}
+
 
 function findItemById(id) {
   return itemModel.findById(id);
@@ -28,19 +46,16 @@ function addItem(item) {
   return promise;
 }
 
-function findItemByName(name) {
-  return itemModel.find({ name: name });
-}
-
 
 function deleteItemById(id) {
   return itemModel.findByIdAndDelete(id);
 }
 
-export default {
+export {
   addItem,
   getItems,
   findItemById,
-  findItemByName,
-  deleteItemById,
+  findItemByFilters,
+  findItemByUser,
+  deleteItemById
 };
