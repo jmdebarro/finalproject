@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const UserSchema = new mongoose.Schema(
+const ItemSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -17,23 +17,26 @@ const UserSchema = new mongoose.Schema(
       },
     },
     image: {
-        type: Image,
+        type: String,
         required: true,
-        trim: true,
     },
-    PickUp: {
+    pickUp: {
         type: String,
         required: true,
         trim: true,
         validate(value) {
-            if (value != "Shipping" || value != "Meet-Up")
+            if (value != "Shipping" && value != "Meet-Up")
               throw new Error("Must include way to recieve Item");
         },
     },
+    filter: {
+      type: String,
+      required: true,
+    },
   },
-  { collection: "items_list" }
+  { collection: "items" }
 );
 
-const Item = mongoose.model("Item", ItemSchema);
+const Item = mongoose.model("items", ItemSchema);
 
 export default Item;
