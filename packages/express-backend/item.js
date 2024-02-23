@@ -20,15 +20,6 @@ const ItemSchema = new mongoose.Schema(
         type: String,
         required: true,
     },
-    pickUp: {
-        type: String,
-        required: true,
-        trim: true,
-        validate(value) {
-            if (value != "Shipping" && value != "Meet-Up")
-              throw new Error("Must include way to recieve Item");
-        },
-    },
     filter: {
       type: String,
       required: true,
