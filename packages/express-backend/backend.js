@@ -11,6 +11,7 @@ import {
   findItemByUser,
   deleteItemById
 } from "./item-services.js";
+// npm install dotenv, mongodb, cors
 
 const app = express();
 const port = 8000;

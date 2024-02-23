@@ -1,21 +1,48 @@
 import mongoose from "mongoose";
 import itemModel from "./item.js";
+import { MongoClient, ServerApiVersion } from 'mongodb';
+import dotenv from 'dotenv'
+dotenv.config()
 
-mongoose.set("debug", true);
+const uri = "mongodb+srv://" + process.env.MONGO_USER +":" +  process.env.MONGO_PASSWORD + "@cluster0.qujzjab.mongodb.net/freeStuff?retryWrites=true&w=majority&appName=Cluster0";
 
-mongoose
-  .connect("mongodb://127.0.0.1:27017/freeStuff", {
+try {
+  await mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-  })
-  .catch((error) => console.log(error));
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    },
+  });
+
+  if (mongoose.connection.readyState === 1) {
+    console.log('Connected to MongoDB');
+  } else {
+    console.error('Failed to connect to MongoDB');
+  }
+} catch (error) {
+  console.error('Error connecting to MongoDB', error);
+}
+
+// mongoose.connect(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   serverApi: {
+//     version: ServerApiVersion.v1,
+//     strict: true,
+//     deprecationErrors: true,
+//   },
+// });
+
 
 function getItems(filters, user) {
   let promise;
-  console.log("Here");
   if ((filters === undefined) && (user === undefined)) {
     console.log("There");
     promise = itemModel.find({});
+    console.log("Completed Get")
   } else if (filters && !user) {
     promise = findItemByFilters(filters);
   } else if (user && !filters) {
