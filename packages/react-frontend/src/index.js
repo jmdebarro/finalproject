@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOMClient from "react-dom/client";
 import MyApp from "./components/MyApp";
 import Navbar from "./components/Navbar";
+import Login from "./components/Login";
+import NotFoundPage from "./components/NotFoundPage";
+
 import {
   createBrowserRouter,
   RouterProvider
@@ -20,7 +23,12 @@ const router = createBrowserRouter([
         <Navbar />
         <MyApp />
       </>
-    )
+    ),
+    errorElement: <NotFoundPage />
+  },
+  {
+    path: "/login",
+    element: <Login />
   }
 ]);
 // Initial render:
