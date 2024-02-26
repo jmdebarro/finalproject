@@ -102,20 +102,41 @@ app.post("/users", async(req, res) => {
 
 
 // ITEM METHODS
-
+// app.get("/item", (req, res) => {
+//   console.log("Inside Get");
+//   const filters = req.query.filters;
+//   const user = req.query.user;
+//   getItems(filters, user).then((items) =>{
+//     res.send(items);
+//   }).catch((error) => {
+//     res.status(500).send("Internal Server Error");
+//   })
+//   });
 
 app.get("/items", async(req, res) => {
 
   try {    
-    const name = req.query.name;    
-    if (name != undefined) {
+    const name = req.query.name;
+    const filters = req.query.filters;    
+    const tags = req.query.tags;
+    const userId = req.query.userId;
+    if(filters != undefined) {
+      let result = await itemServices.findItemByTags(filters);
+      result = { items_list: result };
+      res.send(result);
+    } else if(tags != undefined) {
+      let result = await itemServices.findItemByTags(tags);
+      result = { items_list: result };
+      res.send(result);
+    }
+    else if (name != undefined) {
       let result = await itemServices.findItemByName(name);
       result = { items_list: result };
       res.send(result);
     }
     else {
       console.log('returning all items');
-      let result = await itemServices.getItems();
+      let result = await itemServices.getItems(name, tags, userId);
       console.log(JSON.stringify(result, null, 2));
       result = { items_list: result };
       res.send(result);
@@ -174,18 +195,6 @@ app.post("/items", async(req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-
-
-// app.get("/item", (req, res) => {
-//   console.log("Inside Get");
-//   const filters = req.query.filters;
-//   const user = req.query.user;
-//   getItems(filters, user).then((items) =>{
-//     res.send(items);
-//   }).catch((error) => {
-//     res.status(500).send("Internal Server Error");
-//   })
-//   });
 
 // app.post("/item", (req, res) => {
 //   const itemToAdd = req.body;

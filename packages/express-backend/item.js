@@ -42,7 +42,12 @@ const ItemSchema = new mongoose.Schema(
             }
         },
     },
-    filter: {
+    userId: {
+        type: String,
+        required: true,
+        trim: true,
+    },
+    tags: {
       type: String,
       required: true,
       trim: true
