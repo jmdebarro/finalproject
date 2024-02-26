@@ -12,8 +12,14 @@ const uri =
   process.env.MONGO_PASSWORD +
   "@cluster0.qujzjab.mongodb.net/freeStuff?retryWrites=true&w=majority&appName=Cluster0";
 
-try {
-  await mongoose.connect(uri, {
+connectToDB().then(() => {
+  console.log("Connected to DB");
+}).catch(error => {
+    console.log("Failed to connect to DB");
+});
+
+async function connectToDB(){
+  mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverApi: {
@@ -22,16 +28,7 @@ try {
       deprecationErrors: true
     }
   });
-
-  if (mongoose.connection.readyState === 1) {
-    console.log("Connected to MongoDB");
-  } else {
-    console.error("Failed to connect to MongoDB");
-  }
-} catch (error) {
-  console.error("Error connecting to MongoDB", error);
 }
-
 function getItems(name, tags, userId) {
   let promise;
   console.log(
