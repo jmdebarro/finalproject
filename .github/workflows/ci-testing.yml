@@ -2,7 +2,7 @@ name: CI Testing
 
 on:
   push:
-    branches: [cicdBranch]
+    branches: [main]
 
 jobs:
   build:
