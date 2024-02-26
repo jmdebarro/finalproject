@@ -10,14 +10,16 @@ mongoose
   })
   .catch((error) => console.log(error));
 
-function getUsers(name, job) {
+function getUsers(name, job, empId) {
   let promise;
-  if (name === undefined && job === undefined) {
+  if (name === undefined && job === undefined && empId === undefined) {
     promise = userModel.find();
   } else if (name && !job) {
     promise = findUserByName(name);
   } else if (job && !name) {
     promise = findUserByJob(job);
+  } else if (empId) {
+    promise = findUserByEmpId(empId);
   }
   return promise;
 }
@@ -40,6 +42,10 @@ function findUserByJob(job) {
   return userModel.find({ job: job });
 }
 
+function findUserByEmpId(empId) {
+  return userModel.find({ empId: empId });
+}
+
 function findUserByNameAndJob(name, job) {
   return userModel.find({ name: name, job: job });
 }
@@ -55,6 +61,7 @@ export default {
   findUserById,
   findUserByName,
   findUserByJob,
+  findUserByEmpId,
   findUserByNameAndJob,
   deleteUserById,
 };
