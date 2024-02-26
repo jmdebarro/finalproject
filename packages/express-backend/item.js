@@ -5,7 +5,7 @@ const ItemSchema = new mongoose.Schema(
     name: {
       type: String,
       required: true,
-      trim: true,
+      trim: true
     },
     description: {
       type: String,
@@ -13,45 +13,49 @@ const ItemSchema = new mongoose.Schema(
       trim: true,
       validate(value) {
         if (value.length < 5) {
-          throw new Error("Invalid Item, must contain description of at least 5 characters");
+          throw new Error(
+            "Invalid Item, must contain description of at least 5 characters"
+          );
         }
-      },
+      }
     },
     image: {
-        type: String,
-        required: true,
-        trim: true,
+      type: String,
+      required: true,
+      trim: true
     },
     pickUpType: {
-        type: String,
-        required: true,
-        trim: true,
-        validate(value) {
-            if (value != "Drop Off" && value != "Meet Up") {
-              throw new Error("Must include way to recieve Item");
-            }
-        },
+      type: String,
+      required: true,
+      trim: true,
+      validate(value) {
+        if (value != "Drop Off" && value != "Meet Up") {
+          throw new Error("Must include way to recieve Item");
+        }
+      }
     },
     pickUpLocation: {
-        type: String,
-        required: true,
-        trim: true,
-        validate(value) {
-            if (value.length < 5) {
-              throw new Error("Must include way a location to recieve Item");
-            }
-        },
+      type: String,
+      required: true,
+      trim: true,
+      validate(value) {
+        if (value.length < 5) {
+          throw new Error(
+            "Must include way a location to recieve Item"
+          );
+        }
+      }
     },
     userId: {
-        type: String,
-        required: true,
-        trim: true,
+      type: String,
+      required: true,
+      trim: true
     },
     tags: {
       type: String,
       required: true,
       trim: true
-    },
+    }
   },
   { collection: "items" }
 );
