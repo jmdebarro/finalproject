@@ -20,7 +20,7 @@ const items = [
 function MyApp() {
   return (
     <div className={"container"}>
-      <MainComponent itemData={items}/>
+      <MainComponent itemData={items} />
     </div>
   );
 }
