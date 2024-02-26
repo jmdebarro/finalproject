@@ -42,10 +42,15 @@ const ItemSchema = new mongoose.Schema(
             }
         },
     },
+    filter: {
+      type: String,
+      required: true,
+      trim: true
+    },
   },
-  { collection: "items_list" }
+  { collection: "items" }
 );
 
-const Item = mongoose.model("Item", ItemSchema);
+const Item = mongoose.model("items", ItemSchema);
 
 export default Item;

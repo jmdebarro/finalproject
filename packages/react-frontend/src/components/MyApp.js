@@ -1,4 +1,5 @@
-import  Table from "./Table";
+import React from "react";
+// import  Table from "./Table";
 import MainComponent from "./Item";
 
 const items = [
