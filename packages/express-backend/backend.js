@@ -11,15 +11,15 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  console.log("Here, in beginning");
   res.send("Hello Slogrammers!");
 });
 
-app.listen(port, () => {
-  console.log(
-    `Example app listening at http://localhost:${port}`
-  );
+
+// All api requests now go to freestuff-api.azurewebsites.net add /items and /users to this
+app.listen(process.env.PORT || port, () => {
+  console.log("Listening at freestuff-api.azurewebsites.net.");
 });
+
 
 // USER METHODS
 
