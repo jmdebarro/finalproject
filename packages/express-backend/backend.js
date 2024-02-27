@@ -14,16 +14,12 @@ app.get("/", (req, res) => {
   res.send("Hello Slogrammers!");
 });
 
+
+// All api requests now go to freestuff-api.azurewebsites.net add /items and /users to this
 app.listen(process.env.PORT || port, () => {
-  console.log("REST API is listening.");
+  console.log("Listening at freestuff-api.azurewebsites.net.");
 });
 
-// Old connection
-// app.listen(port, () => {
-//   console.log(
-//     `Example app listening at http://localhost:${port}`
-//   );
-// });
 
 // USER METHODS
 
