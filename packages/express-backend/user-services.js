@@ -10,6 +10,7 @@ import userModel from "./user.js";
 //     useUnifiedTopology: true
 //   })
 //   .catch((error) => console.log(error));
+// pushing for azure to deploy
 
 function getUsers(name, job, empId) {
   let promise;
