@@ -23,7 +23,7 @@ app.listen(port, () => {
 
 // USER METHODS
 
-app.get("/users", async (req, res) => {
+app.get("/users", authenticateUser, async (req, res) => {
   try {
     const name = req.query.name;
     const job = req.query.job;
@@ -55,7 +55,7 @@ app.get("/users", async (req, res) => {
   }
 });
 
-app.get("/users/:id", async (req, res) => {
+app.get("/users/:id", authenticateUser, async (req, res) => {
   try {
     const id = req.params["id"]; //or req.params.id
     let result = await userServices.findUserById(id);
@@ -71,7 +71,7 @@ app.get("/users/:id", async (req, res) => {
   }
 });
 
-app.delete("/users/:id", async (req, res) => {
+app.delete("/users/:id", authenticateUser, async (req, res) => {
   try {
     const id = req.params.id; // Or simply req.params.id
     let result = await userServices.deleteUserById(id);
@@ -87,7 +87,8 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
-app.post("/users", async (req, res) => {
+//TODO: Protect all data paths with authenticateUser except signup and login
+app.post("/users", authenticateUser, async (req, res) => {
   try {
     const userToAdd = req.body;
     let newUser = await userServices.addUser(userToAdd);
@@ -97,6 +98,9 @@ app.post("/users", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+app.post("/signup", registerUser);
+app.post("/login", registerUser);
 
 // ITEM METHODS
 // app.get("/item", (req, res) => {
@@ -110,7 +114,7 @@ app.post("/users", async (req, res) => {
 //   })
 //   });
 
-app.get("/items", async (req, res) => {
+app.get("/items", authenticateUser, async (req, res) => {
   try {
     const name = req.query.name;
     const filters = req.query.filters;
@@ -145,7 +149,7 @@ app.get("/items", async (req, res) => {
   }
 });
 
-app.get("/items/:id", async (req, res) => {
+app.get("/items/:id", authenticateUser, async (req, res) => {
   try {
     const id = req.params["id"]; //or req.params.id
     let result = await itemServices.findItemById(id);
@@ -161,7 +165,7 @@ app.get("/items/:id", async (req, res) => {
   }
 });
 
-app.delete("/items/:id", async (req, res) => {
+app.delete("/items/:id", authenticateUser, async (req, res) => {
   try {
     const id = req.params.id; // Or simply req.params.id
     let result = await itemServices.deleteItemById(id);
@@ -177,7 +181,7 @@ app.delete("/items/:id", async (req, res) => {
   }
 });
 
-app.post("/items", async (req, res) => {
+app.post("/items", authenticateUser, async (req, res) => {
   try {
     const itemToAdd = req.body;
     console.log("Logging data");
