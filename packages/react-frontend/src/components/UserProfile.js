@@ -7,7 +7,7 @@ function UserProfile() {
 
   useEffect(() => {
     // Fetch user data from backend
-    axios.get("http://localhost:8000/user/profile")
+    axios.get("freestuff-api.azurewebsites.net/users")
       .then(response => {
         setUserData(response.data);
       })
