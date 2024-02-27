@@ -1,5 +1,14 @@
 # finalproject
 
+## Frontend website
+[Frontend](https://delightful-island-0985f9e1e.4.azurestaticapps.net)
+
+## Backend link
+freestuff-api.azurewebsites.net
+
+Must copy and paste
+
+
 **Remember to pull**
 
 ### In case you are missing dependencies
