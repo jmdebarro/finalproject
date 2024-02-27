@@ -11,15 +11,19 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  console.log("Here, in beginning");
   res.send("Hello Slogrammers!");
 });
 
-app.listen(port, () => {
-  console.log(
-    `Example app listening at http://localhost:${port}`
-  );
+app.listen(process.env.PORT || port, () => {
+  console.log("REST API is listening.");
 });
+
+// Old connection
+// app.listen(port, () => {
+//   console.log(
+//     `Example app listening at http://localhost:${port}`
+//   );
+// });
 
 // USER METHODS
 

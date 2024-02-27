@@ -5,12 +5,7 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 import dotenv from "dotenv";
 dotenv.config();
 
-const uri =
-  "mongodb+srv://" +
-  process.env.MONGO_USER +
-  ":" +
-  process.env.MONGO_PASSWORD +
-  "@cluster0.qujzjab.mongodb.net/freeStuff?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGO_URI;
 
 connectToDB()
   .then(() => {
@@ -31,6 +26,7 @@ async function connectToDB() {
     }
   });
 }
+
 function getItems(name, tags, userId) {
   let promise;
   console.log(
