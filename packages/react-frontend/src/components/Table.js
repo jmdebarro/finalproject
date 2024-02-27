@@ -2,7 +2,6 @@ import React from "react";
 import style from "./table.module.css"
 
 
-
 function TableItem(props) {
     const info = props.itemData;
     return (
