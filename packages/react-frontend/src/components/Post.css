@@ -15,20 +15,36 @@
     flex-direction: column;
   }
   
+  .post-container form .boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .post-container .box {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
   .post-container form label {
+    display: block;
     margin-bottom: 10px;
   }
   
-  .post-container form input[type="file"] {
+  .post-container form input[type="file"],
+  .post-container form input[type="text"],
+  .post-container form textarea,
+  .post-container form select {
     margin-top: 10px;
+    width: 100%;
   }
   
   .post-container form textarea {
-    margin-top: 10px;
     height: 100px;
   }
   
   .post-container form button {
-    margin-top: 20px;
     padding: 10px 20px;
   }
