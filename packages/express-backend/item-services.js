@@ -12,13 +12,15 @@ const uri =
   process.env.MONGO_PASSWORD +
   "@cluster0.qujzjab.mongodb.net/freeStuff?retryWrites=true&w=majority&appName=Cluster0";
 
-connectToDB().then(() => {
-  console.log("Connected to DB");
-}).catch(error => {
+connectToDB()
+  .then(() => {
+    console.log("Connected to DB");
+  })
+  .catch((error) => {
     console.log("Failed to connect to DB");
-});
+  });
 
-async function connectToDB(){
+async function connectToDB() {
   mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

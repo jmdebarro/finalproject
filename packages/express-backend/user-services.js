@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import userModel from "./user.js";
 
-
 // Use for local server, but try and get acquainted with cloud DB
 // mongoose.set("debug", true);
 
