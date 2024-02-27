@@ -1,0 +1,23 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.contactInfo {
+  margin-bottom: 20px;
+}
+
+.itemTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.itemTable th, .itemTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.itemTable th {
+  background-color: #f2f2f2;
+}
