@@ -3,6 +3,7 @@ import ReactDOMClient from "react-dom/client";
 import MyApp from "./components/MyApp";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
+import Post from "./components/Post";
 import NotFoundPage from "./components/NotFoundPage";
 
 import {
@@ -28,7 +29,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />
+    element: <Login />,
+    
+  },
+  {
+    path: "/post",
+    element: <Post />
+  
   }
 ]);
 // Initial render:

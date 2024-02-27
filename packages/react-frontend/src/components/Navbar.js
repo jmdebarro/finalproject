@@ -1,17 +1,23 @@
 import React from "react";
 import style from "./navbar.module.css";
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <header className={style.navbar}>
         <nav className={style.navbar}>
           <h1>
-            <div className={style.website}> Free Stuff </div>
+            <div className={style.website}>Free Stuff</div>
           </h1>
           <ul>
             <li>
-              <button className={style.button}>
+              <button
+                className={style.button}
+                onClick={() => navigate('/post')}
+              >
                 Post Item
               </button>
             </li>
