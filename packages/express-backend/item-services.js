@@ -1,67 +1,85 @@
 import mongoose from "mongoose";
 import itemModel from "./item.js";
-import { MongoClient, ServerApiVersion } from 'mongodb';
-import dotenv from 'dotenv'
-dotenv.config()
 
-const uri = "mongodb+srv://" + process.env.MONGO_USER +":" +  process.env.MONGO_PASSWORD + "@cluster0.qujzjab.mongodb.net/freeStuff?retryWrites=true&w=majority&appName=Cluster0";
+import { MongoClient, ServerApiVersion } from "mongodb";
+import dotenv from "dotenv";
+dotenv.config();
 
-try {
-  await mongoose.connect(uri, {
+const uri = process.env.MONGO_URI;
+
+connectToDB()
+  .then(() => {
+    console.log("Connected to DB");
+  })
+  .catch((error) => {
+    console.log("Failed to connect to DB");
+  });
+
+async function connectToDB() {
+  mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     serverApi: {
       version: ServerApiVersion.v1,
       strict: true,
-      deprecationErrors: true,
-    },
+      deprecationErrors: true
+    }
   });
-
-  if (mongoose.connection.readyState === 1) {
-    console.log('Connected to MongoDB');
-  } else {
-    console.error('Failed to connect to MongoDB');
-  }
-} catch (error) {
-  console.error('Error connecting to MongoDB', error);
 }
 
-// mongoose.connect(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   serverApi: {
-//     version: ServerApiVersion.v1,
-//     strict: true,
-//     deprecationErrors: true,
-//   },
-// });
-
-
-function getItems(filters, user) {
+function getItems(name, tags, userId) {
   let promise;
-  if ((filters === undefined) && (user === undefined)) {
-    console.log("There");
+  console.log(
+    "name: %s\ntags: %s, userId: %s\n\n",
+    name,
+    tags,
+    userId
+  );
+
+  if (
+    tags === undefined &&
+    name === undefined &&
+    userId === undefined
+  ) {
     promise = itemModel.find({});
-    console.log("Completed Get")
-  } else if (filters && !user) {
-    promise = findItemByFilters(filters);
-  } else if (user && !filters) {
-    promise = findItemByUser(user);
+  } else if (name != undefined) {
+    promise = findItemByName(name);
+  } else if (userId != undefined) {
+    promise = findItemByUserId(userId);
+  } else if (tags != undefined && userId != undefined) {
+    promise = findItemByTagsAndUserId(tags, userId);
   } else {
-    promise = itemModel.find({ filter: { $in: filters }, user: user });
+    promise = findItemByTags(tags);
   }
   return promise;
 }
 
-
-function findItemByUser(user) {
-  return itemModel.find({ user: user });
+function findItemByUserId(userId) {
+  return itemModel.find({ userId: userId });
 }
 
-function findItemByFilters(filters) {
-  return itemModel.find({ filters: filters });
+function findItemByTags(tags) {
+  console.log("In findItemByTags\ntags: %s\n\n", tags);
+  // This is doing an exact match, we need to use a regular expression.
+  //return itemModel.find({ tags: { $in: tags } });
+  const tagRegex = new RegExp(tags, "i");
+  return itemModel.find({ tags: { $regex: tagRegex } });
 }
 
+function findItemByTagsAndUserId(tags, userId) {
+  console.log(
+    "In findItemByTagsAndUserId\nname: %s\ntags: %s, userId: %s\n\n",
+    tags,
+    userId
+  );
+  //return itemModel.find({ tags: { $in: tags }, userId: userId });
+
+  const tagRegex = new RegExp(tags, "i");
+  return itemModel.find({
+    tags: { $regex: tagRegex },
+    userId: userId
+  });
+}
 
 function findItemById(id) {
   return itemModel.findById(id);
@@ -73,16 +91,16 @@ function addItem(item) {
   return promise;
 }
 
-
 function deleteItemById(id) {
   return itemModel.findByIdAndDelete(id);
 }
 
-export {
+export default {
   addItem,
   getItems,
   findItemById,
-  findItemByFilters,
-  findItemByUser,
+  findItemByTags,
+  findItemByUserId,
+  findItemByTagsAndUserId,
   deleteItemById
 };

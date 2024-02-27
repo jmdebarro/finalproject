@@ -2,6 +2,9 @@ import React from "react";
 // import  Table from "./Table";
 import MainComponent from "./Item";
 
+// Default Domain: freestuff-api.azurewebsites.net
+// Where we will fetch backend info from eventually
+
 const items = [
   {
     image: "IMAGE",
@@ -20,7 +23,7 @@ const items = [
 function MyApp() {
   return (
     <div className={"container"}>
-      <MainComponent itemData={items}/>
+      <MainComponent itemData={items} />
     </div>
   );
 }

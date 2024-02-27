@@ -1,40 +1,39 @@
 .item_box {
-    border: 1px solid black;
-    margin: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 25%;
-    height: 30vh;
+  border: 1px solid black;
+  margin: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 30vh;
 }
 
 .item_container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+}
 
 .image {
-    width: 70%;
-    height: 80%;
-    background-color: rgb(145, 180, 162);
-    margin: 5px;
+  width: 70%;
+  height: 80%;
+  background-color: rgb(145, 180, 162);
+  margin: 5px;
 }
 
 .info {
-    display: flex;
-    align-items: column;
-    flex-direction: column;
+  display: flex;
+  align-items: column;
+  flex-direction: column;
 }
 
 .description {
-    background-color: rgb(16, 123, 82);
-    height: 90px;
-    margin: 5px;
+  background-color: rgb(16, 123, 82);
+  height: 90px;
+  margin: 5px;
 }
 
 .user {
-    background-color:rgb(168, 168, 195);
-    height: 40px;
-    margin: 5px;
+  background-color: rgb(168, 168, 195);
+  height: 40px;
+  margin: 5px;
 }

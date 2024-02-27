@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "group project for 307",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npx eslint . && npx prettier --check .",
+    "test": "npx jest",
+    "dev": "nodemon backend_with_db.js",
     "start": "cd packages/react-frontend && npm run start"
   },
   "repository": {
@@ -25,5 +28,8 @@
     "mongoose": "^8.1.1",
     "react-router-dom": "^6.22.1",
     "react-scripts": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
   }
 }
