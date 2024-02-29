@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import userServices from "./user-services.js";
 import itemServices from "./item-services.js";
-
+import { authenticateUser, registerUser } from "./auth.js";
 const app = express();
 const port = 8000;
 
@@ -14,12 +14,10 @@ app.get("/", (req, res) => {
   res.send("Hello Slogrammers!");
 });
 
-
 // All api requests now go to freestuff-api.azurewebsites.net add /items and /users to this
 app.listen(process.env.PORT || port, () => {
   console.log("Listening at freestuff-api.azurewebsites.net.");
 });
-
 
 // USER METHODS
 
