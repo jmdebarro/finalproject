@@ -20,11 +20,11 @@ const items = [
   }
 ];
 
-function MyApp() {
+function ItemsTable() {
   return (
     <div className={"container"}>
       <MainComponent itemData={items} />
     </div>
   );
 }
-export default MyApp;
+export default ItemsTable;

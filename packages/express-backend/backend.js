@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import userServices from "./user-services.js";
 import itemServices from "./item-services.js";
-
+import { authenticateUser, registerUser } from "./auth.js";
 const app = express();
 const port = 8000;
 
@@ -14,12 +14,10 @@ app.get("/", (req, res) => {
   res.send("Hello Slogrammers!");
 });
 
-
 // All api requests now go to freestuff-api.azurewebsites.net add /items and /users to this
 app.listen(process.env.PORT || port, () => {
   console.log("Listening at freestuff-api.azurewebsites.net.");
 });
-
 
 // USER METHODS
 
@@ -87,6 +85,7 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
+//TODO: Protect all data paths with authenticateUser except signup and login
 app.post("/users", async (req, res) => {
   try {
     const userToAdd = req.body;
@@ -97,6 +96,9 @@ app.post("/users", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+app.post("/signup", registerUser);
+app.post("/login", registerUser);
 
 // ITEM METHODS
 // app.get("/item", (req, res) => {
