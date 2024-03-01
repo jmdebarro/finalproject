@@ -1,0 +1,50 @@
+.post-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+  }
+  
+  .post-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .post-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .post-container form .boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .post-container .box {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .post-container form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .post-container form input[type="file"],
+  .post-container form input[type="text"],
+  .post-container form textarea,
+  .post-container form select {
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  .post-container form textarea {
+    height: 100px;
+  }
+  
+  .post-container form button {
+    padding: 10px 20px;
+  }

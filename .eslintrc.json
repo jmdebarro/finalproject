@@ -1,0 +1,11 @@
+{
+  "rules": {
+    "import/no-commonjs": "off",
+    "react/prop-types": 0,
+    "react/react-in-jsx-scope": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module"
+  }
+}
