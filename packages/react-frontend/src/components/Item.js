@@ -5,7 +5,7 @@ function ItemBox(props) {
     return (
     <div key={props._id} className={style.item_box}>
         <div className={style.image}>
-            {props.image}
+            <img src={`data:image/jpeg;base64,${props.image}`} alt="Base64 Image" style={{ width: '100%', height: '100%' }} />
         </div>
         <div className={style.info}>
             <div className={style.description}>

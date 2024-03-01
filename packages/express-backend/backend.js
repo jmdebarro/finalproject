@@ -196,6 +196,26 @@ app.post("/items", async(req, res) => {
   }
 });
 
+app.patch("/items/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const partialUpdates = req.body;
+
+    let updatedItem = await itemServices.updateItemById(id, partialUpdates);
+
+    if(updatedItem) {
+      res.status(200).send({ item: updatedItem });
+    } else {
+      res.status(404).send({ message: "Item not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+
+
 // app.post("/item", (req, res) => {
 //   const itemToAdd = req.body;
 //   const id = Math.floor(Math.random() * 100000).toString();

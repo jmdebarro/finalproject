@@ -1,27 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // import  Table from "./Table";
 import MainComponent from "./Item";
 
-const items = [
-  {
-    image: "IMAGE",
-    user: "user",
-    description: "This is item info",
-    _id: "1234"
-  },
-  {
-    image: "IMAGE",
-    user: "person",
-    description: "This is item info",
-    _id: "321"
-  }
-];
-
 function MyApp() {
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetchItems()
+      .then((res) => res.json())
+      .then((json) => setItems(json["items_list"]))
+      .catch((error) => { console.log(error); });
+  }, [] );
+
   return (
     <div className={"container"}>
       <MainComponent itemData={items}/>
     </div>
   );
 }
+
+function fetchItems() {
+  const promise = fetch("http://localhost:8000/items");
+  return promise;
+}
+
 export default MyApp;

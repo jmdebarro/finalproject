@@ -86,6 +86,12 @@ function addItem(item) {
   return promise;
 }
 
+function updateItemById(id, updatedProperties) {
+  // The { new: true } option ensures that the function returns the updated document.
+  // The { useFindAndModify: false } option is sometimes used to opt-in to using the native MongoDB driver's findOneAndUpdate function instead of Mongoose's findAndModify function. This option is not needed for Mongoose 6 and above.
+  const options = { new: true };
+  return itemModel.findByIdAndUpdate(id, updatedProperties, options).exec();
+}
 
 function deleteItemById(id) {
   return itemModel.findByIdAndDelete(id);
@@ -93,6 +99,7 @@ function deleteItemById(id) {
 
 export default {
   addItem,
+  updateItemById,
   getItems,
   findItemById,
   findItemByTags,
