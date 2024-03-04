@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./navbar.module.css";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ export default function Navbar() {
       <header className={style.navbar}>
         <nav className={style.navbar}>
           <h1>
-            <div className={style.website}>Free Stuff</div>
+            <Link to="/" className={style.website}>Free Stuff</Link>
           </h1>
           <ul>
             <li>
