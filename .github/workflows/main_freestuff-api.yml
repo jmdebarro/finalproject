@@ -11,6 +11,8 @@ on:
 
 jobs:
   build:
+    env:
+    CI: false
     runs-on: ubuntu-latest
 
     steps:
