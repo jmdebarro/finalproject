@@ -3,6 +3,7 @@ import ItemsTable from "./ItemsTable";
 import Navbar from "./Navbar";
 import Login from "./Login";
 import NotFoundPage from "./NotFoundPage";
+import Post from "./Post"
 
 import {
   createBrowserRouter,
@@ -39,6 +40,15 @@ function FrontendHandler() {
           handleSubmit={signupUser}
           buttonLabel="Sign Up"
         />
+      )
+    },
+    {
+      path: "/post",
+      element: (
+        <>
+            <Navbar />
+            <Post />
+        </>
       )
     }
   ]);
