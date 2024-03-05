@@ -22,19 +22,24 @@ function Post() {
     }));
   };
     
-    const handleFileChange = (event) => {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          setItem(prevItem => ({
-            ...prevItem,
-            image: e.target.result 
-          }));
-        };
-        reader.readAsDataURL(file);
-      }
-    };
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        // Get the result, and remove the prefix
+        let base64String = e.target.result;
+        const base64Data = base64String.split(',')[1]; // This removes the 'data:image/jpeg;base64,' part
+  
+        setItem(prevItem => ({
+          ...prevItem,
+          image: base64Data // Set only the pure base64 string
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+  
 
   function postItem(item) {
     const promise = fetch("https://freestuff-api.azurewebsites.net/items", {
