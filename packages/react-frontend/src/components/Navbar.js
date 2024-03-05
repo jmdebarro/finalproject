@@ -27,6 +27,12 @@ export default function Navbar() {
                 Search Item
               </button>
             </li>
+            <li>
+              <button className={style.button}
+              onClick={() => navigate('/settings')}>
+                Settings
+              </button>
+            </li>
           </ul>
         </nav>
       </header>
