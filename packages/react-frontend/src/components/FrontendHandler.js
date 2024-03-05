@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Login from "./Login";
 import NotFoundPage from "./NotFoundPage";
 import Post from "./Post"
+import Settings from "./Settings";
 
 import {
   createBrowserRouter,
@@ -31,15 +32,22 @@ function FrontendHandler() {
     },
     {
       path: "/login",
-      element: <Login handleSubmit={loginUser} />
+      element: (
+        <>
+          <Navbar/>
+          <Login handleSubmit={loginUser} />
+        </>)
     },
     {
       path: "/signup",
       element: (
-        <Login
+        <>
+        <Navbar/>
+          <Login
           handleSubmit={signupUser}
           buttonLabel="Sign Up"
-        />
+        /></>
+
       )
     },
     {
@@ -48,6 +56,15 @@ function FrontendHandler() {
         <>
             <Navbar />
             <Post />
+        </>
+      )
+    },
+    {
+      path: "/settings",
+      element: (
+        <>
+        <Navbar/>
+          <Settings/>
         </>
       )
     }

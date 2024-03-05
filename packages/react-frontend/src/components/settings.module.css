@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: lightgray;
+}
+
+.button {
+    background-color: grey;
+    color: black;
+    width: 30%;
+    padding: 20px;
+    margin: 20px;
+}
