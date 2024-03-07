@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 // import  Table from "./Table";
 import MainComponent from "./Item";
+import addAuthHeader from "./FrontendHandler";
 
 function ItemsTable() {
   const [items, setItems] = useState([]);
-
+  function fetchItems() {
+    const promise = fetch(
+      "https://freestuff-api.azurewebsites.net/items",
+      {
+        headers: addAuthHeader()
+      }
+    );
+    return promise;
+  }
   useEffect(() => {
     fetchItems()
       .then((res) => res.json())
@@ -19,13 +28,6 @@ function ItemsTable() {
       <MainComponent itemData={items} />
     </div>
   );
-}
-
-function fetchItems() {
-  const promise = fetch(
-    "https://freestuff-api.azurewebsites.net/items"
-  );
-  return promise;
 }
 
 export default ItemsTable;

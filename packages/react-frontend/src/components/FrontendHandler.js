@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ItemsTable from "./ItemsTable";
 import Navbar from "./Navbar";
 import Login from "./Login";
 import NotFoundPage from "./NotFoundPage";
-import Post from "./Post"
+import Post from "./Post";
 import Settings from "./Settings";
+import MainComponent from "./Table";
 
 import {
   createBrowserRouter,
@@ -18,6 +19,16 @@ function FrontendHandler() {
   const INVALID_TOKEN = "INVALID_TOKEN";
   const [token, setToken] = useState(INVALID_TOKEN);
   const [message, setMessage] = useState("");
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    fetchItems()
+      .then((res) => res.json())
+      .then((json) => setItems(json["items_list"]))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   const router = createBrowserRouter([
     {
@@ -25,7 +36,9 @@ function FrontendHandler() {
       element: (
         <>
           <Navbar />
-          <ItemsTable />
+          <div className={"container"}>
+            <MainComponent itemData={items} />
+          </div>
         </>
       ),
       errorElement: <NotFoundPage />
@@ -34,28 +47,29 @@ function FrontendHandler() {
       path: "/login",
       element: (
         <>
-          <Navbar/>
+          <Navbar />
           <Login handleSubmit={loginUser} />
-        </>)
+        </>
+      )
     },
     {
       path: "/signup",
       element: (
         <>
-        <Navbar/>
+          <Navbar />
           <Login
-          handleSubmit={signupUser}
-          buttonLabel="Sign Up"
-        /></>
-
+            handleSubmit={signupUser}
+            buttonLabel="Sign Up"
+          />
+        </>
       )
     },
     {
       path: "/post",
       element: (
         <>
-            <Navbar />
-            <Post />
+          <Navbar />
+          <Post />
         </>
       )
     },
@@ -63,24 +77,21 @@ function FrontendHandler() {
       path: "/settings",
       element: (
         <>
-        <Navbar/>
-          <Settings/>
+          <Navbar />
+          <Settings />
         </>
       )
     }
   ]);
-
-  function addAuthHeader(otherHeaders = {}) {
-    if (token === INVALID_TOKEN) {
-      return otherHeaders;
-    } else {
-      return {
-        ...otherHeaders,
-        Authorization: `Bearer ${token}`
-      };
-    }
+  function fetchItems() {
+    const promise = fetch(
+      "https://freestuff-api.azurewebsites.net/items",
+      {
+        headers: addAuthHeader()
+      }
+    );
+    return promise;
   }
-
   function loginUser(creds) {
     const promise = fetch(
       `freestuff-api.azurewebsites.net/login`,
@@ -110,7 +121,16 @@ function FrontendHandler() {
 
     return promise;
   }
-
+  function addAuthHeader(otherHeaders = {}) {
+    if (token === INVALID_TOKEN) {
+      return otherHeaders;
+    } else {
+      return {
+        ...otherHeaders,
+        Authorization: `Bearer ${token}`
+      };
+    }
+  }
   function signupUser(creds) {
     const promise = fetch(
       `freestuff-api.azurewebsites.net/signup`,
