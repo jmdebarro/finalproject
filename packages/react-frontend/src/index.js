@@ -4,7 +4,10 @@ import MyApp from "./components/MyApp";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Post from "./components/Post";
+import Search from "./components/Search";
 import NotFoundPage from "./components/NotFoundPage";
+import MyProfile from "./components/MyProfile"; // Import the MyProfile component
+import Settings from "./components/Settings"; // Import the Settings component
 
 import {
   createBrowserRouter,
@@ -29,15 +32,26 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
-    
+    element: <Login />
   },
   {
     path: "/post",
     element: <Post />
-  
+  },
+  {
+    path: "/search",
+    element: <Search />
+  },
+  {
+    path: "/myprofile", // Add the route for the MyProfile page
+    element: <MyProfile />
+  },
+  {
+    path: "/settings",
+    element: <Settings />
   }
 ]);
+
 // Initial render:
 root.render(
   <React.StrictMode>

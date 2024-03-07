@@ -1,11 +1,11 @@
-import React from 'react';
-import './Post.css';
+import React from "react";
+import "./Post.css";
 
 class Post extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Form submitted');
-  }
+    console.log("Form submitted");
+  };
 
   render() {
     return (
@@ -17,7 +17,10 @@ class Post extends React.Component {
               <h2>Photo & Description</h2>
               <label>
                 Name:
-                <input type="text" placeholder="Enter item name..." />
+                <input
+                  type="text"
+                  placeholder="Enter item name..."
+                />
               </label>
               <label>
                 Upload Photo:
@@ -29,7 +32,10 @@ class Post extends React.Component {
               </label>
               <label>
                 Tags:
-                <input type="text" placeholder="Enter tags..." />
+                <input
+                  type="text"
+                  placeholder="Enter tags..."
+                />
               </label>
             </div>
             <div className="box">

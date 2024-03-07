@@ -1,0 +1,40 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profileBubble {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #000000;
+  margin-right: 10px;
+}
+
+.profileInfo h2 {
+  margin: 0;
+}
+
+.profileInfo p {
+  margin: 0;
+}
+
+.username {
+  display: flex;
+  align-items: center;
+}
+
+.userBubble {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #000000;
+  margin-right: 10px;
+}
