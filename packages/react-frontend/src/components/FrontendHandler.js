@@ -5,6 +5,8 @@ import Login from "./Login";
 import NotFoundPage from "./NotFoundPage";
 import Post from "./Post"
 import Settings from "./Settings";
+// import UserProfile from "./UserProfile";
+import MyProfile from "./MyProfile";
 
 import {
   createBrowserRouter,
@@ -65,6 +67,24 @@ function FrontendHandler() {
         <>
         <Navbar/>
           <Settings/>
+        </>
+      )
+    },
+    // {
+    //   path: "/userprofile",
+    //   element: (
+    //     <>
+    //       <Navbar/>
+    //       <UserProfile/>
+    //     </>
+    //   )
+    // }
+    {
+      path: "/myprofile",
+      element: (
+        <>
+          <Navbar/>
+          <MyProfile/>
         </>
       )
     }
