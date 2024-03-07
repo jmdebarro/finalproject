@@ -74,7 +74,7 @@ export default function Navbar() {
       <header className={style.navbar}>
         <nav className={style.navbar}>
           <h1>
-            <div className={style.website}>Free Stuff</div>
+            <Link to="/" className={style.website}>Free Stuff</Link>
           </h1>
           <ul>
             <li>
@@ -91,6 +91,12 @@ export default function Navbar() {
                 onClick={() => setShowSearch(!showSearch)}
               >
                 Search Item
+              </button>
+            </li>
+            <li>
+              <button className={style.button}
+              onClick={() => navigate('/settings')}>
+                Settings
               </button>
             </li>
           </ul>

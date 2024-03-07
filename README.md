@@ -1,19 +1,22 @@
-# finalproject
+# freeStuff
+An app for Cal Poly SLO students to give away and receive items for free
 
-**Remember to pull**
+## Product Vision
+ For any person who wants to get or give away free stuff. The website is an app that provides a platform for users to connect with each other. Unlike meeting people in person, our product provides a streamlined, centralized place to browse and post free items. git 
 
-### In case you are missing dependencies
 
-**Use npm install to install all dependencies required by package.json**
+## UI Prototype
+[Figma Pototype](https://www.figma.com/file/geIHkQuwUjqmJExvTwqXiT/307-Prototype?type=design&node-id=0%3A1&mode=design&t=ZoNPEpnOp2Q9IWh2-1)
 
-This is if someone had to install a library for functionality and pushed it, you must install it in your node_modules
 
-### Linting
+## Development Environments
 
-Run npx prettier --check .
+### Frontend
+[website](https://delightful-island-0985f9e1e.4.azurestaticapps.net)
 
-This checks all files for linting
+### Backend
+[server](https://freestuff-api.azurewebsites.net/)
 
-Run npx prettier --write .
 
-This rewrites all files to match style reqs
+## Class Diagrams (UML)
+![UML Diagram](./UML.JPG)

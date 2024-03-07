@@ -3,7 +3,7 @@ import express from "express";
 import cors from "cors";
 import userServices from "./user-services.js";
 import itemServices from "./item-services.js";
-
+import { authenticateUser, registerUser } from "./auth.js";
 const app = express();
 const port = 8000;
 
@@ -85,6 +85,7 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
+//TODO: Protect all data paths with authenticateUser except signup and login
 app.post("/users", async (req, res) => {
   try {
     const userToAdd = req.body;
@@ -95,6 +96,9 @@ app.post("/users", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+app.post("/signup", registerUser);
+app.post("/login", registerUser);
 
 // ITEM METHODS
 // app.get("/item", (req, res) => {
@@ -188,6 +192,26 @@ app.post("/items", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+app.patch("/items/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const partialUpdates = req.body;
+
+    let updatedItem = await itemServices.updateItemById(id, partialUpdates);
+
+    if(updatedItem) {
+      res.status(200).send({ item: updatedItem });
+    } else {
+      res.status(404).send({ message: "Item not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+
 
 // app.post("/item", (req, res) => {
 //   const itemToAdd = req.body;

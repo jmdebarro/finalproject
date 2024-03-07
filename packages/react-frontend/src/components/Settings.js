@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "./Settings.module.css"; // Import the new CSS module
+import { Link } from "react-router-dom";
+import style from "./settings.module.css"
 
 function Settings() {
   return (
@@ -27,6 +29,8 @@ function Settings() {
       <button className={styles.settingsButton}>
         Delete Account
       </button>
+       <button className={style.button}><Link to="/login">Log In</Link></button>
+       <button className={style.button}><Link to="/signup">Sign Up</Link></button>
     </div>
   );
 }
