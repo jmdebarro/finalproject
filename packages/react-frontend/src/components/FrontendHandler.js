@@ -3,7 +3,7 @@ import ItemsTable from "./ItemsTable";
 import Navbar from "./Navbar";
 import Login from "./Login";
 import NotFoundPage from "./NotFoundPage";
-import Post from "./Post";
+import Post from "./Post"
 import Settings from "./Settings";
 
 import {
@@ -34,32 +34,28 @@ function FrontendHandler() {
       path: "/login",
       element: (
         <>
-          <Navbar />
+          <Navbar/>
           <Login handleSubmit={loginUser} />
-        </>
-      )
+        </>)
     },
     {
       path: "/signup",
       element: (
         <>
-          <Navbar />
+        <Navbar/>
           <Login
-            handleSubmit={signupUser}
-            buttonLabel="Sign Up"
-          />
-        </>
+          handleSubmit={signupUser}
+          buttonLabel="Sign Up"
+        /></>
+
       )
     },
     {
       path: "/post",
       element: (
         <>
-          <Navbar />
-          <div className="post-container">
-            <h1>Post an Item</h1>
-            <Post handleSubmit={postItem} />
-          </div>
+            <Navbar />
+            <Post />
         </>
       )
     },
@@ -67,8 +63,8 @@ function FrontendHandler() {
       path: "/settings",
       element: (
         <>
-          <Navbar />
-          <Settings />
+        <Navbar/>
+          <Settings/>
         </>
       )
     }
@@ -83,21 +79,6 @@ function FrontendHandler() {
         Authorization: `Bearer ${token}`
       };
     }
-  }
-  function postItem(item) {
-    console.log("handleSubmit");
-    const promise = fetch(
-      "https://freestuff-api.azurewebsites.net/items",
-      {
-        method: "POST",
-        headers: addAuthHeader({
-          "Content-Type": "application/json"
-        }),
-        body: JSON.stringify(item)
-      }
-    );
-    return promise;
-    return;
   }
 
   function loginUser(creds) {
