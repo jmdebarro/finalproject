@@ -83,7 +83,7 @@ function FrontendHandler() {
 
   function loginUser(creds) {
     const promise = fetch(
-      `freestuff-api.azurewebsites.net/login`,
+      `https://freestuff-api.azurewebsites.net/login`,
       {
         method: "POST",
         headers: {
@@ -113,7 +113,7 @@ function FrontendHandler() {
 
   function signupUser(creds) {
     const promise = fetch(
-      `freestuff-api.azurewebsites.net/signup`,
+      `https://freestuff-api.azurewebsites.net/signup`,
       {
         method: "POST",
         headers: {

@@ -98,7 +98,7 @@ app.post("/users", async (req, res) => {
 });
 
 app.post("/signup", registerUser);
-app.post("/login", registerUser);
+app.post("/login", loginUser);
 
 // ITEM METHODS
 // app.get("/item", (req, res) => {
