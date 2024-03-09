@@ -8,7 +8,8 @@ const app = express();
 const port = 8000;
 
 app.use(cors());
-app.use(express.json());
+
+app.use(express.json({ limit: '50mb' }));
 
 app.get("/", (req, res) => {
   res.send("Hello Slogrammers!");
@@ -137,7 +138,7 @@ app.get("/items", async (req, res) => {
         tags,
         userId
       );
-      console.log(JSON.stringify(result, null, 2));
+      // console.log(JSON.stringify(result, null, 2));
       result = { items_list: result };
       res.send(result);
     }

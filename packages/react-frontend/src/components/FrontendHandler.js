@@ -3,10 +3,11 @@ import ItemsTable from "./ItemsTable";
 import Navbar from "./Navbar";
 import Login from "./Login";
 import NotFoundPage from "./NotFoundPage";
-import Post from "./Post"
+import Post from "./Post";
 import Settings from "./Settings";
 // import UserProfile from "./UserProfile";
 import MyProfile from "./MyProfile";
+import ItemPage from "./ItemPage";
 
 import {
   createBrowserRouter,
@@ -36,28 +37,29 @@ function FrontendHandler() {
       path: "/login",
       element: (
         <>
-          <Navbar/>
+          <Navbar />
           <Login handleSubmit={loginUser} />
-        </>)
+        </>
+      )
     },
     {
       path: "/signup",
       element: (
         <>
-        <Navbar/>
+          <Navbar />
           <Login
-          handleSubmit={signupUser}
-          buttonLabel="Sign Up"
-        /></>
-
+            handleSubmit={signupUser}
+            buttonLabel="Sign Up"
+          />
+        </>
       )
     },
     {
       path: "/post",
       element: (
         <>
-            <Navbar />
-            <Post />
+          <Navbar />
+          <Post />
         </>
       )
     },
@@ -65,8 +67,17 @@ function FrontendHandler() {
       path: "/settings",
       element: (
         <>
-        <Navbar/>
-          <Settings/>
+          <Navbar />
+          <Settings />
+        </>
+      )
+    },
+    {
+      path: "/item/:itemId",
+      element: (
+        <>
+          <Navbar />
+          <ItemPage />
         </>
       )
     },
