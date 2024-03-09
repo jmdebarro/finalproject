@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams,  } from "react-router-dom";
-import style from "./table.module.css";
+import style from "./item.module.css";
 
 
 function fetchItem(id) {
@@ -29,13 +29,19 @@ function ItemPage() {
         />
       </div>
       <div className={style.info}>
-        <div className={style.description}>
-          {item.description}
-          <br />
-          Pick Up: {item.pickUpType} <br />
-          Location: {item.pickUpLocation}
+        <div className={style.generic}>
+          <b>Description:</b> <br></br> {item.description}
         </div>
-        <div className={style.user}>{item.user}</div>
+        <div className={style.generic}>
+        <b>Pick Up:</b>  <br></br>{item.pickUpType}
+        </div>
+        <div className={style.generic}>
+        <b>Location:</b>  <br></br>{item.pickUpType}
+        </div>
+        <div className={style.generic}>
+        <b>Filter:</b>  <br></br>{item.tags}
+        </div>
+        <div className={style.generic}>{item.user}</div>
       </div>
     </div>
   );
