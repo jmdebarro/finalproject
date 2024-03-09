@@ -72,7 +72,6 @@ function FrontendHandler() {
         <>
           <Navbar />
           <Settings />
-
         </>
       )
     },
