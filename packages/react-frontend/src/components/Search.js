@@ -1,29 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./Search.module.css";
+import ItemsTable from "./ItemsTable";
 
 export default function Search() {
+  const [selectedFilter, setSelectedFilter] = useState("");
   return (
+    <div>
     <div className={style.container}>
-      <h1>Search Items</h1>
-      <div className={style.searchBar}>
-        <input type="text" placeholder="Search..." />
-        <button className={style.searchButton}>Search</button>
-      </div>
       <div className={style.filterContainer}>
         <h2>Filter by:</h2>
-        <button className={style.filterButton}>Clothes</button>
-        <button className={style.filterButton}>
-          Room decor
-        </button>
-        <button className={style.filterButton}>Storage</button>
-        <button className={style.filterButton}>
-          Kitchenware
-        </button>
-        <button className={style.filterButton}>Shoes</button>
-        <button className={style.filterButton}>
-          Textbooks
-        </button>
+        <button className={style.filterButton} onClick={() => setSelectedFilter("Technology")}>Technology</button>
+        <button className={style.filterButton} onClick={() => setSelectedFilter("Kitchen")}>Kitchen</button>
+        <button className={style.filterButton} onClick={() => setSelectedFilter("Sports")}>Sports</button>
+        <button className={style.filterButton} onClick={() => setSelectedFilter("Furniture")}>Furniture</button>
+        <button className={style.filterButton} onClick={() => setSelectedFilter("Art")}>Art</button>
       </div>
+    </div>
+      <ItemsTable selectedFilter={selectedFilter} />
     </div>
   );
 }
