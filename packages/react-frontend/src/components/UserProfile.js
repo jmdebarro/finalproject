@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import style from "./userprofile.module.css";
+import style from "./UserProfile.module.css";
+import { Link } from "react-router-dom";
 
 function UserProfile() {
   const [userData, setUserData] = useState(null);

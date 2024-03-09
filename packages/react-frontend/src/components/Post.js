@@ -21,23 +21,22 @@ function Post(props) {
     }));
   };
 
+
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        // Get the result, and remove the prefix
-        let base64String = e.target.result;
-        const base64Data = base64String.split(",")[1]; // This removes the 'data:image/jpeg;base64,' part
-
-        setItem((prevItem) => ({
+        setItem(prevItem => ({
           ...prevItem,
-          image: base64Data // Set only the pure base64 string
+          image: e.target.result 
         }));
       };
       reader.readAsDataURL(file);
     }
   };
+
+  
   function submitForm(e) {
     e.preventDefault();
     console.log(item);
