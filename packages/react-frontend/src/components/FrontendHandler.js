@@ -59,7 +59,10 @@ function FrontendHandler() {
       element: (
         <>
           <Navbar />
-          <Post />
+          <div className="post-container">
+            <h1>Post an Item</h1>
+            <Post handleSubmit={postItem} />
+          </div>
         </>
       )
     },
@@ -69,6 +72,7 @@ function FrontendHandler() {
         <>
           <Navbar />
           <Settings />
+
         </>
       )
     },
@@ -111,10 +115,25 @@ function FrontendHandler() {
       };
     }
   }
+  function postItem(item) {
+    console.log("handleSubmit");
+    const promise = fetch(
+      "https://freestuff-api.azurewebsites.net/items",
+      {
+        method: "POST",
+        headers: addAuthHeader({
+          "Content-Type": "application/json"
+        }),
+        body: JSON.stringify(item)
+      }
+    );
+    return promise;
+    return;
+  }
 
   function loginUser(creds) {
     const promise = fetch(
-      `freestuff-api.azurewebsites.net/login`,
+      `https://freestuff-api.azurewebsites.net/login`,
       {
         method: "POST",
         headers: {
@@ -144,7 +163,7 @@ function FrontendHandler() {
 
   function signupUser(creds) {
     const promise = fetch(
-      `freestuff-api.azurewebsites.net/signup`,
+      `https://freestuff-api.azurewebsites.net/signup`,
       {
         method: "POST",
         headers: {

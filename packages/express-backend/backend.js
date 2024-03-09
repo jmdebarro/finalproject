@@ -3,7 +3,11 @@ import express from "express";
 import cors from "cors";
 import userServices from "./user-services.js";
 import itemServices from "./item-services.js";
-import { authenticateUser, registerUser } from "./auth.js";
+import {
+  authenticateUser,
+  registerUser,
+  loginUser
+} from "./auth.js";
 const app = express();
 const port = 8000;
 
@@ -99,7 +103,7 @@ app.post("/users", async (req, res) => {
 });
 
 app.post("/signup", registerUser);
-app.post("/login", registerUser);
+app.post("/login", loginUser);
 
 // ITEM METHODS
 // app.get("/item", (req, res) => {
@@ -180,7 +184,7 @@ app.delete("/items/:id", async (req, res) => {
   }
 });
 
-app.post("/items", async (req, res) => {
+app.post("/items", authenticateUser, async (req, res) => {
   try {
     const itemToAdd = req.body;
     console.log("Logging data");
@@ -199,9 +203,12 @@ app.patch("/items/:id", async (req, res) => {
     const { id } = req.params;
     const partialUpdates = req.body;
 
-    let updatedItem = await itemServices.updateItemById(id, partialUpdates);
+    let updatedItem = await itemServices.updateItemById(
+      id,
+      partialUpdates
+    );
 
-    if(updatedItem) {
+    if (updatedItem) {
       res.status(200).send({ item: updatedItem });
     } else {
       res.status(404).send({ message: "Item not found" });
@@ -211,8 +218,6 @@ app.patch("/items/:id", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-
-
 
 // app.post("/item", (req, res) => {
 //   const itemToAdd = req.body;
