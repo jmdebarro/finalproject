@@ -29,12 +29,12 @@ async function connectToDB() {
 
 function getItems(name, tags, userId) {
   let promise;
-  console.log(
-    "name: %s\ntags: %s, userId: %s\n\n",
-    name,
-    tags,
-    userId
-  );
+  // console.log(
+  //   "name: %s\ntags: %s, userId: %s\n\n",
+  //   name,
+  //   tags,
+  //   userId
+  // );
 
   if (
     tags === undefined &&
