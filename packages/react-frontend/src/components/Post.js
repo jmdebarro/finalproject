@@ -22,20 +22,22 @@ function Post() {
     }));
   };
     
-    const handleFileChange = (event) => {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          setItem(prevItem => ({
-            ...prevItem,
-            image: e.target.result 
-          }));
-        };
-        reader.readAsDataURL(file);
-      }
-    };
 
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setItem(prevItem => ({
+          ...prevItem,
+          image: e.target.result 
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  
   function postItem(item) {
     const promise = fetch("https://freestuff-api.azurewebsites.net/items", {
       method: "POST",
