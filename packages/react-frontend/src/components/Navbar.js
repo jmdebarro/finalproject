@@ -49,24 +49,6 @@ export default function Navbar() {
       >
         Settings
       </button>
-      {/* <button
-        className={style.sidebarButton}
-        onClick={() => navigate("/orders")}
-      >
-        Orders
-      </button>
-      <button
-        className={style.sidebarButton}
-        onClick={() => navigate("/customer-service")}
-      >
-        Customer Service
-      </button>
-      <button
-        className={style.sidebarButton}
-        onClick={() => navigate("/logout")}
-      >
-        Logout
-      </button> */}
     </div>
   );
 
@@ -86,20 +68,6 @@ export default function Navbar() {
                 Post Item
               </button>
             </li>
-            <li>
-              <button
-                className={style.button}
-                onClick={() => setShowSearch(!showSearch)}
-              >
-                Search Item
-              </button>
-            </li>
-            {/* <li>
-              <button className={style.button}
-              onClick={() => navigate('/settings')}>
-                Settings
-              </button>
-            </li> */}
           </ul>
           <button
             className={style.menuButton}
