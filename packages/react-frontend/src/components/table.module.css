@@ -1,12 +1,17 @@
 .item_box {
   border: 1px solid black;
-  margin: 2px;
+  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 25%;
+  width: calc(25% - 20px);
   height: 30vh;
+  border-radius: 5px;
+  background-color: #1b5e20;
+  color: white;
+  font-family: 'Roboto', sans-serif;
 }
+
 
 .item_container {
   display: flex;
@@ -16,8 +21,9 @@
 .image {
   width: 70%;
   height: 80%;
-  background-color: rgb(145, 180, 162);
+  background-color: #aed581;
   margin: 5px;
+  border-radius: 5px;
 }
 
 .info {
@@ -27,13 +33,15 @@
 }
 
 .description {
-  background-color: rgb(16, 123, 82);
+  background-color: #2c892f;
   height: 90px;
   margin: 5px;
+  border-radius: 5px;
 }
 
 .user {
-  background-color: rgb(168, 168, 195);
+  background-color: #96cc7e; 
   height: 40px;
   margin: 5px;
+  border-radius: 5px;
 }

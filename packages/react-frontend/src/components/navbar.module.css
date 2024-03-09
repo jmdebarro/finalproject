@@ -4,47 +4,62 @@
   top: 0;
   width: 100%;
   z-index: 10;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
-
-  background-color: rgb(12, 73, 10);
+  background-color: #1b5e20; /* Dark green background */
   color: white;
-  padding: 0px 0px;
+  padding: 10px 40px; /* Increased padding for better spacing */
+  border-radius: 50px; /* Softening edges */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
 
   /* Debug border */
   /* border: solid red; */
 }
 
 ul {
-  list-style: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 li {
   display: inline;
-  margin-right: 100px;
+  margin-right: 30px; /* Reduced margin for better spacing */
 }
 
 .button {
   background-color: #2c892f;
   color: white;
-  padding: 15px 30px;
-  font-size: 20px;
+  padding: 10px 20px;
+  font-size: 18px; /* Slightly reduced font size */
   cursor: pointer;
-  width: 200px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; /* Smooth color transition */
+  font-family: 'Roboto', sans-serif; /* More professional font */
 }
 
 .navbar a {
   color: white;
   font-weight: bold;
-  margin: 0 12px;
   text-decoration: none;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  transition: color 0.3s ease; /* Smooth color transition */
+  font-family: 'Roboto', sans-serif; /* More professional font */
 }
 
 .website {
   margin-left: 40px;
-  font-size: 40px;
+  font-size: 32px;
+  font-family: 'Montserrat', sans-serif; /* Using a common sans-serif font */
+}
+
+.button:hover {
+  background-color: #1b5e20; /* Dark green hover color */
+}
+
+.navbar a:hover {
+  color: #2c892f; /* Light green hover color */
 }
