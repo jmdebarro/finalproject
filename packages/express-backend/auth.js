@@ -1,6 +1,8 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
+import userServices from "./user-services.js";
+
 const test = dotenv.config();
 console.log("DOTENV" + test);
 const creds = [];
@@ -21,8 +23,20 @@ export function registerUser(req, res) {
           console.log("Token:", token);
           res.status(201).send({ token: token });
           creds.push({ username, hashedPassword });
+          addUser({
+            userName: username,
+            password: hashedPassword
+          });
         });
       });
+  }
+}
+
+async function addUser(userToAdd) {
+  try {
+    await userServices.addUser(userToAdd);
+  } catch (error) {
+    console.error(error);
   }
 }
 

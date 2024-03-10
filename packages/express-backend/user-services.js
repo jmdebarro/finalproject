@@ -1,6 +1,31 @@
 import mongoose from "mongoose";
 import userModel from "./user.js";
 
+import { MongoClient, ServerApiVersion } from "mongodb";
+import dotenv from "dotenv";
+dotenv.config();
+
+const uri = process.env.MONGO_URI;
+
+connectToDB()
+  .then(() => {
+    console.log("Connected to DB");
+  })
+  .catch((error) => {
+    console.log("Failed to connect to DB");
+  });
+
+async function connectToDB() {
+  mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true
+    }
+  });
+}
 // Use for local server, but try and get acquainted with cloud DB
 // mongoose.set("debug", true);
 

@@ -2,14 +2,29 @@ import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema(
   {
-    name: {
+    userName: {
       type: String,
       required: true,
       trim: true
     },
-    empId: {
+    phoneNumber: {
+      type: String,
+      required: false,
+      trim: true
+    },
+    password: {
       type: String,
       required: true,
+      trim: true
+    },
+    name: {
+      type: String,
+      required: false,
+      trim: true
+    },
+    empId: {
+      type: String,
+      required: false,
       trim: true,
       validate(value) {
         if (value.length < 3)
@@ -20,7 +35,7 @@ const UserSchema = new mongoose.Schema(
     },
     job: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
       validate(value) {
         if (value.length < 2)
