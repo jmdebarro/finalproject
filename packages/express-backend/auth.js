@@ -1,6 +1,8 @@
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-
+import dotenv from "dotenv";
+const test = dotenv.config();
+console.log("DOTENV" + test);
 const creds = [];
 
 export function registerUser(req, res) {

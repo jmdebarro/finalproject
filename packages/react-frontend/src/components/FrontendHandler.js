@@ -8,7 +8,7 @@ import Settings from "./Settings";
 // import UserProfile from "./UserProfile";
 import MyProfile from "./MyProfile";
 import ItemPage from "./ItemPage";
-import Search from "./Search"
+import Search from "./Search";
 
 import {
   createBrowserRouter,
@@ -98,8 +98,8 @@ function FrontendHandler() {
       path: "/myprofile",
       element: (
         <>
-          <Navbar/>
-          <MyProfile/>
+          <Navbar />
+          <MyProfile />
         </>
       )
     }
