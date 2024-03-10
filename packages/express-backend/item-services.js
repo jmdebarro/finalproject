@@ -9,7 +9,7 @@ const uri = process.env.MONGO_URI;
 
 connectToDB()
   .then(() => {
-    console.log("Connected to DB");
+    console.log("itemServices connected to DB");
   })
   .catch((error) => {
     console.log("Failed to connect to DB");
@@ -95,7 +95,9 @@ function updateItemById(id, updatedProperties) {
   // The { new: true } option ensures that the function returns the updated document.
   // The { useFindAndModify: false } option is sometimes used to opt-in to using the native MongoDB driver's findOneAndUpdate function instead of Mongoose's findAndModify function. This option is not needed for Mongoose 6 and above.
   const options = { new: true };
-  return itemModel.findByIdAndUpdate(id, updatedProperties, options).exec();
+  return itemModel
+    .findByIdAndUpdate(id, updatedProperties, options)
+    .exec();
 }
 
 function deleteItemById(id) {

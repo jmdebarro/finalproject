@@ -9,7 +9,7 @@ const uri = process.env.MONGO_URI;
 
 connectToDB()
   .then(() => {
-    console.log("Connected to DB");
+    console.log("userServices connected to DB");
   })
   .catch((error) => {
     console.log("Failed to connect to DB");
@@ -60,6 +60,7 @@ function findUserById(id) {
 }
 
 function addUser(user) {
+  console.log("adding user");
   const userToAdd = new userModel(user);
   const promise = userToAdd.save();
   return promise;
