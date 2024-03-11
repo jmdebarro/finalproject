@@ -92,7 +92,7 @@ export function loginUser(req, res) {
     console.log("password entered: " + pwd);
     console.log("user.password: " + user.password);
     console.log("user[password]: " + user[password]);
-    console.log("user[password]: " + user[password]);
+    console.log("user[password]: " + user["password"]);
 
     bcrypt
       .compare(pwd, user.password)
