@@ -90,12 +90,10 @@ export function loginUser(req, res) {
     console.log("user object found: " + user);
     console.log("typeof user" + typeof user);
     console.log("password entered: " + pwd);
-    console.log("user.password: " + user.password);
-    console.log("user[password]: " + user[password]);
     console.log("user[password]: " + user["password"]);
 
     bcrypt
-      .compare(pwd, user.password)
+      .compare(pwd, user["password"])
       .then((matched) => {
         if (matched) {
           generateAccessToken(username).then((token) => {
