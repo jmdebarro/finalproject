@@ -86,25 +86,44 @@ export function loginUser(req, res) {
   const retrievedUser = creds.find(
     (c) => c.username === username
   );
-
-  if (!retrievedUser) {
-    // invalid username
-    res.status(401).send("Unauthorized");
-  } else {
-    bcrypt
-      .compare(pwd, retrievedUser.hashedPassword)
-      .then((matched) => {
-        if (matched) {
-          generateAccessToken(username).then((token) => {
-            res.status(200).send({ token: token });
-          });
-        } else {
-          // invalid password
+  findUserByUserName(username).then((user) => {
+    user.json().then((retrievedUser) => {
+      bcrypt
+        .compare(pwd, retrievedUser.password)
+        .then((matched) => {
+          if (matched) {
+            generateAccessToken(username).then((token) => {
+              res.status(200).send({ token: token });
+            });
+          } else {
+            // invalid password
+            res.status(401).send("Unauthorized");
+          }
+        })
+        .catch(() => {
           res.status(401).send("Unauthorized");
-        }
-      })
-      .catch(() => {
-        res.status(401).send("Unauthorized");
-      });
-  }
+        });
+    });
+  });
+
+  // if (!retrievedUser) {
+  //   // invalid username
+  //   res.status(401).send("Unauthorized");
+  // } else {
+  //   bcrypt
+  //     .compare(pwd, retrievedUser.hashedPassword)
+  //     .then((matched) => {
+  //       if (matched) {
+  //         generateAccessToken(username).then((token) => {
+  //           res.status(200).send({ token: token });
+  //         });
+  //       } else {
+  //         // invalid password
+  //         res.status(401).send("Unauthorized");
+  //       }
+  //     })
+  //     .catch(() => {
+  //       res.status(401).send("Unauthorized");
+  //     });
+  // }
 }
