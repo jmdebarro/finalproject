@@ -90,7 +90,17 @@ export function loginUser(req, res) {
     console.log("user object found: " + user);
     console.log("typeof user" + typeof user);
     console.log("password entered: " + pwd);
-    console.log("user[password]: " + user["password"]);
+
+    console.log(".json(): ");
+    user.json().then((obj) => {
+      console.log(obj);
+      console.log(obj.password);
+      console.log(obj["password"]);
+    });
+
+    console.log(
+      "user[password in quotes]: " + user["password"]
+    );
 
     bcrypt
       .compare(pwd, user["password"])
