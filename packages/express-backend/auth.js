@@ -99,7 +99,8 @@ export function loginUser(req, res) {
           res.status(401).send("Unauthorized");
         }
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error);
         res.status(401).send("Unauthorized");
       });
   });
