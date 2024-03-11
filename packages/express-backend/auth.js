@@ -88,8 +88,12 @@ export function loginUser(req, res) {
   //);
   userServices.findUserByUserName(username).then((user) => {
     console.log("user object found: " + user);
+    console.log("typeof user" + typeof user);
     console.log("password entered: " + pwd);
-    console.log("hashed password: " + user.password);
+    console.log("user.password: " + user.password);
+    console.log("user[password]: " + user[password]);
+    console.log("user[password]: " + user[password]);
+
     bcrypt
       .compare(pwd, user.password)
       .then((matched) => {
