@@ -86,7 +86,7 @@ export function loginUser(req, res) {
   const retrievedUser = creds.find(
     (c) => c.username === username
   );
-  findUserByUserName(username).then((user) => {
+  userServices.findUserByUserName(username).then((user) => {
     user.json().then((retrievedUser) => {
       bcrypt
         .compare(pwd, retrievedUser.password)
