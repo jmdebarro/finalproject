@@ -87,7 +87,7 @@ export function loginUser(req, res) {
   //  (c) => c.username === username
   //);
   userServices.findUserByUserName(username).then((user) => {
-    console.log(user);
+    console.log("user object found: " + user);
     console.log("password entered: " + pwd);
     console.log("hashed password: " + user.password);
     bcrypt

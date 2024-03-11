@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import userModel from "./user.js";
+import User from "./user.js";
 
 import { MongoClient, ServerApiVersion } from "mongodb";
 import dotenv from "dotenv";
@@ -44,7 +44,7 @@ function getUsers(name, job, empId) {
     job === undefined &&
     empId === undefined
   ) {
-    promise = userModel.find();
+    promise = User.find();
   } else if (name && !job) {
     promise = findUserByName(name);
   } else if (job && !name) {
@@ -56,38 +56,38 @@ function getUsers(name, job, empId) {
 }
 
 function findUserById(id) {
-  return userModel.findById(id);
+  return User.findById(id);
 }
 
 function addUser(user) {
   console.log("adding user");
-  const userToAdd = new userModel(user);
+  const userToAdd = new User(user);
   const promise = userToAdd.save();
   return promise;
 }
 
 function findUserByName(name) {
-  return userModel.find({ name: name });
+  return User.find({ name: name });
 }
 
-function findUserByUserName(name) {
-  return userModel.find({ userName: name });
+function findUserByUserName(userName) {
+  return User.find({ userName: userName });
 }
 
 function findUserByJob(job) {
-  return userModel.find({ job: job });
+  return User.find({ job: job });
 }
 
 function findUserByEmpId(empId) {
-  return userModel.find({ empId: empId });
+  return User.find({ empId: empId });
 }
 
 function findUserByNameAndJob(name, job) {
-  return userModel.find({ name: name, job: job });
+  return User.find({ name: name, job: job });
 }
 
 function deleteUserById(id) {
-  return userModel.findByIdAndDelete(id);
+  return User.findByIdAndDelete(id);
 }
 
 export default {
