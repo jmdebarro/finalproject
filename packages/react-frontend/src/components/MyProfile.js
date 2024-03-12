@@ -36,7 +36,6 @@ function MyProfile(props) {
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
-        <div className={styles.profileBubble}></div>{" "}
         {/* Use the .profileBubble class for the profile image */}
         <div className={styles.profileInfo}>
           <h2>
