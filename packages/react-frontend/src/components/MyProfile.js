@@ -45,7 +45,7 @@ function MyProfile(props) {
       </div>
       <h2>My posted items:</h2>{" "}
       {/* Add a header before the items */}
-      <MainComponent itemData={items} />
+      <MainComponent itemData={items} showDeleteButton={true} />
     </div>
   );
 }
