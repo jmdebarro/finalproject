@@ -20,7 +20,6 @@ function Settings(props) {
   return (
     <div className={style.container}>
       <div className={style.profile}>
-        <div className={style.profileBubble}></div>{" "}
         {/* Use the .profileBubble class for the profile image */}
         <div className={style.profileInfo}>
           <h2>
@@ -30,10 +29,6 @@ function Settings(props) {
           <p>Phone Number: {user ? user.phoneNumber : "n/a"}</p>
         </div>
       </div>
-      <h2>Settings:</h2> {/* Add a header for the settings */}
-      <button className={style.settingsButton}>
-        Account Info
-      </button>
       {/* <button className={styles.settingsButton}>
         Marked Posts
       </button>
