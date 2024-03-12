@@ -23,7 +23,8 @@ function FrontendHandler() {
   const INVALID_TOKEN = "INVALID_TOKEN";
   const [token, setToken] = useState(INVALID_TOKEN);
   const [message, setMessage] = useState("");
-
+  const [currUserName, setCurrUserName] =
+    useState("INVALID_USER");
   const router = createBrowserRouter([
     {
       path: "/",
@@ -97,7 +98,7 @@ function FrontendHandler() {
       element: (
         <>
           <Navbar />
-          <MyProfile />
+          <MyProfile userId={currUserName} />
         </>
       )
     }
@@ -114,6 +115,8 @@ function FrontendHandler() {
     }
   }
   function postItem(item) {
+    item = { ...item, userId: currUserName };
+    console.log(item);
     console.log("handleSubmit");
     const promise = fetch(
       "https://freestuff-api.azurewebsites.net/items",
@@ -145,6 +148,7 @@ function FrontendHandler() {
           response
             .json()
             .then((payload) => setToken(payload.token));
+          setCurrUserName(creds.username);
           setMessage(`Login successful; auth token saved`);
         } else {
           setMessage(
@@ -175,6 +179,7 @@ function FrontendHandler() {
           response
             .json()
             .then((payload) => setToken(payload.token));
+          setCurrUserName(creds.username);
           setMessage(
             `Signup successful for user: ${creds.username}; auth token saved`
           );
