@@ -9,6 +9,8 @@ import Settings from "./Settings";
 import MyProfile from "./MyProfile";
 import ItemPage from "./ItemPage";
 import Search from "./Search";
+import Signup from "./Signup";
+
 import {
   createBrowserRouter,
   RouterProvider
@@ -47,10 +49,7 @@ function FrontendHandler() {
       element: (
         <>
           <Navbar />
-          <Login
-            handleSubmit={signupUser}
-            buttonLabel="Sign Up"
-          />
+          <Signup handleSubmit={signupUser} />
         </>
       )
     },

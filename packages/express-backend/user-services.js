@@ -45,12 +45,6 @@ function getUsers(name, job, empId) {
     empId === undefined
   ) {
     promise = User.find();
-  } else if (name && !job) {
-    promise = findUserByName(name);
-  } else if (job && !name) {
-    promise = findUserByJob(job);
-  } else if (empId) {
-    promise = findUserByEmpId(empId);
   }
   return promise;
 }
@@ -66,24 +60,8 @@ function addUser(user) {
   return promise;
 }
 
-function findUserByName(name) {
-  return User.find({ name: name });
-}
-
 function findUserByUserName(userName) {
   return User.find({ userName: userName });
-}
-
-function findUserByJob(job) {
-  return User.find({ job: job });
-}
-
-function findUserByEmpId(empId) {
-  return User.find({ empId: empId });
-}
-
-function findUserByNameAndJob(name, job) {
-  return User.find({ name: name, job: job });
 }
 
 function deleteUserById(id) {
@@ -94,10 +72,6 @@ export default {
   addUser,
   getUsers,
   findUserById,
-  findUserByName,
-  findUserByJob,
-  findUserByEmpId,
-  findUserByNameAndJob,
   findUserByUserName,
   deleteUserById
 };

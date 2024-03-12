@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 
-function Login(props) {
+function Signup(props) {
   const [creds, setCreds] = useState({
     username: "",
-    pwd: ""
+    pwd: "",
+    phoneNumber: "",
+    email: ""
   });
 
   return (
     <form>
-      <b>Log in to an existing account</b>
+      <b>Create a new account</b>
       <br />
       <label htmlFor="username">Username</label>
       <br />
@@ -30,9 +32,29 @@ function Login(props) {
         onChange={handleChange}
       />
       <br />
+      <label htmlFor="phone number">Phone Number</label>
+      <br />
+      <input
+        type="text"
+        name="phoneNumber"
+        id="phoneNumber"
+        value={creds.phoneNumber}
+        onChange={handleChange}
+      />
+      <br />
+      <label htmlFor="email">Email Address</label>
+      <br />
+      <input
+        type="text"
+        name="email"
+        id="email"
+        value={creds.email}
+        onChange={handleChange}
+      />
+      <br />
       <input
         type="button"
-        value={props.buttonLabel || "Log In"}
+        value={props.buttonLabel || "Sign up"}
         onClick={submitForm}
       />
     </form>
@@ -47,12 +69,23 @@ function Login(props) {
       case "password":
         setCreds({ ...creds, pwd: value });
         break;
+      case "phoneNumber":
+        setCreds({ ...creds, phoneNumber: value });
+        break;
+      case "email":
+        setCreds({ ...creds, email: value });
+        break;
     }
   }
 
   function submitForm() {
     props.handleSubmit(creds);
-    setCreds({ username: "", pwd: "" });
+    setCreds({
+      username: "",
+      pwd: "",
+      email: "",
+      phoneNumber: ""
+    });
   }
 }
-export default Login;
+export default Signup;

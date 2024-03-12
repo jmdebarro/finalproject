@@ -8,7 +8,7 @@ console.log("DOTENV" + test);
 const creds = [];
 
 export function registerUser(req, res) {
-  const { username, pwd } = req.body; // from form
+  const { username, pwd, phone, emailAddr } = req.body; // from form
   if (!username || !pwd) {
     res.status(400).send("Bad request: Invalid input data.");
     return;
@@ -29,7 +29,9 @@ export function registerUser(req, res) {
         //creds.push({ username, hashedPassword });
         addUser({
           userName: username,
-          password: hashedPassword
+          password: hashedPassword,
+          phoneNumber: phone,
+          email: emailAddr
         });
       });
     });
