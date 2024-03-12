@@ -40,7 +40,9 @@ function fetchItems(filter) {
 }
 
 function fetchUsers() {
-  const promise = fetch("https://freestuff-api.azurewebsites.net/users");
+  const promise = fetch(
+    "https://freestuff-api.azurewebsites.net/users"
+  );
   return promise;
 }
 
