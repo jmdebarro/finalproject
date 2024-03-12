@@ -32,7 +32,7 @@ function ItemPage() {
       });
   }, [itemId, user]);
   return (
-    <div key={item._id} className={style.item_box}>
+    <div key={item._id} className={style.item_box} id="ItemPage">
       <div className={style.image}>
         <img
           src={`data:image/jpeg;base64,${item.image}`}

@@ -5,7 +5,7 @@ import ItemsTable from "./ItemsTable";
 export default function Search() {
   const [selectedFilter, setSelectedFilter] = useState("");
   return (
-    <div>
+    <div id="Search">
     <div className={style.container}>
       <div className={style.filterContainer}>
         <h2>Filter by:</h2>
