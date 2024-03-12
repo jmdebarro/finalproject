@@ -82,7 +82,46 @@ describe('Post Item', () => {
   
     cy.get('button[type="submit"]').click()
   })
-}) // This was missing
+})
+
+// describe('Navigate to Settings', () => {
+//   beforeEach(() => {
+//     cy.visit('https://delightful-island-0985f9e1e.4.azurestaticapps.net/') // replace with your app's URL
+//   })
+
+//   it('should navigate to the Settings', () => {
+//     cy.get('.menuButton').click()
+//     cy.url().should('include', '/post')
+//   })
+// })
+
+describe('Navigate to Menu', () => {
+  beforeEach(() => {
+    cy.visit('https://delightful-island-0985f9e1e.4.azurestaticapps.net/') // replace with your app's URL
+  })
+
+  it('should navigate to the post page when the Post Item button is clicked', () => {
+    cy.get('button').contains('Post Item').click()
+    cy.url().should('include', '/post')
+  })
+})
+
+// describe('Navigate to Settings', () => {
+//   beforeEach(() => {
+//     cy.visit('https://delightful-island-0985f9e1e.4.azurestaticapps.net/') // replace with your app's URL
+//   })
+
+//   it('should navigate to the Settings', () => {
+//     // Click the menu button to open the sidebar
+//     cy.get('.menuButton').click()
+
+//     // Click the 'Settings' button in the sidebar
+//     cy.get('.sidebarButton').contains('Settings').click()
+
+//     // Check that the URL includes '/settings'
+//     cy.url().should('include', '/settings')
+//   })
+// })
 
 describe('Navigate to Settings', () => {
   beforeEach(() => {
@@ -90,7 +129,14 @@ describe('Navigate to Settings', () => {
   })
 
   it('should navigate to the Settings', () => {
-    cy.get('.menuButton').click()
-    cy.url().should('include', '/post')
+    // Click the menu button to open the sidebar
+    cy.get('#menu').click()
+
+    // Click the 'Settings' button in the sidebar
+    // cy.get('.sidebarButton').contains('Settings').click()
+    cy.get('button').contains('Settings').click()
+
+    // Check that the URL includes '/settings'
+    cy.url().should('include', '/settings')
   })
 })
