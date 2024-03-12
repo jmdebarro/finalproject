@@ -29,14 +29,10 @@ function Settings(props) {
           <p>Phone Number: {user ? user.phoneNumber : "n/a"}</p>
         </div>
       </div>
-      <h2>Settings:</h2> {/* Add a header for the settings */}
-      <button className={style.settingsButton}>
-        Account Info
-      </button>
       <button className={style.button}>
         <Link to="/login">Log In</Link>
       </button>
-      <button className={style.button} >
+      <button className={style.button}>
         <Link to="/signup">Sign Up</Link>
       </button>
     </div>
