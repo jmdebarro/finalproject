@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema(
     },
     phoneNumber: {
       type: String,
-      required: false,
+      required: true,
       trim: true
     },
     password: {
@@ -19,7 +19,7 @@ const UserSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      required: false,
+      required: true,
       trim: true
     }
   },
