@@ -1,32 +1,49 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MainComponent from "./Item";
 import styles from "./MyProfile.module.css"; // Import the CSS module
 
-const items = [
-  {
-    image: "IMAGE",
-    user: "user",
-    description: "This is item info",
-    _id: "1234"
-  },
-  {
-    image: "IMAGE",
-    user: "person",
-    description: "This is item info",
-    _id: "321"
-  }
-];
-
-function MyProfile() {
+function fetchItems(filter) {
+  const url = filter
+    ? `https://freestuff-api.azurewebsites.net/items?userId=${filter}`
+    : "https://freestuff-api.azurewebsites.net/items";
+  const promise = fetch(url);
+  return promise;
+}
+function fetchUser(filter) {
+  const url = `https://freestuff-api.azurewebsites.net/users?userName=${filter}`;
+  const promise = fetch(url);
+  return promise;
+}
+function MyProfile(props) {
+  const [items, setItems] = useState([]);
+  const [user, setUser] = useState([]);
+  useEffect(() => {
+    fetchItems(props.userId)
+      .then((res) => res.json())
+      .then((json) => setItems(json["items_list"]))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+  useEffect(() => {
+    fetchUser(props.userId)
+      .then((res) => res.json())
+      .then((json) => setUser(json[0]))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <div className={styles.container}>
       <div className={styles.profile}>
         <div className={styles.profileBubble}></div>{" "}
         {/* Use the .profileBubble class for the profile image */}
         <div className={styles.profileInfo}>
-          <h2>Username</h2>
-          <p>Email</p>
-          <p>Phone Number</p>
+          <h2>
+            Username: {user ? user.userName : "Not logged in"}
+          </h2>
+          <p>Email: {user ? user.email : "n/a"}</p>
+          <p>Phone Number: {user ? user.phoneNumber : "n/a"}</p>
         </div>
       </div>
       <h2>User's posted items:</h2>{" "}
