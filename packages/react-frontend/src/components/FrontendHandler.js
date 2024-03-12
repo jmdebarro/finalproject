@@ -71,7 +71,7 @@ function FrontendHandler() {
       element: (
         <>
           <Navbar />
-          <Settings />
+          <Settings userId={currUserName} />
         </>
       )
     },
