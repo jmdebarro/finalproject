@@ -27,16 +27,19 @@ function Post(props) {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
+        // Get the result, and remove the prefix
+        let base64String = e.target.result;
+        const base64Data = base64String.split(',')[1]; // This removes the 'data:image/jpeg;base64,' part
+
         setItem(prevItem => ({
           ...prevItem,
-          image: e.target.result 
+          image: base64Data // Set only the pure base64 string
         }));
       };
       reader.readAsDataURL(file);
     }
   };
-
-  
+ 
   function submitForm(e) {
     e.preventDefault();
     console.log(item);
