@@ -28,22 +28,13 @@ app.listen(process.env.PORT || port, () => {
 
 app.get("/users", async (req, res) => {
   try {
-    const name = req.query.name;
-    const job = req.query.job;
-    if (name != undefined && job != undefined) {
-      let result = await userServices.findUserByNameAndJob(
-        name,
-        job
+    const userName = req.query.userName;
+    if (userName != undefined) {
+      console.log(
+        "returning all users with userName " + userName
       );
-      result = { users_list: result };
-      res.send(result);
-    } else if (name != undefined) {
-      let result = await userServices.findUserByName(name);
-      result = { users_list: result };
-      res.send(result);
-    } else if (job != undefined) {
-      let result = await userServices.findUserByJob(job);
-      result = { users_list: result };
+      let result =
+        await userServices.findUserByUserName(userName);
       res.send(result);
     } else {
       console.log("returning all users");
