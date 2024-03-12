@@ -34,20 +34,10 @@ function Settings(props) {
       <button className={style.settingsButton}>
         Account Info
       </button>
-      {/* <button className={styles.settingsButton}>
-        Marked Posts
-      </button>
-      <button className={styles.settingsButton}>
-        Activity
-      </button>
-      <button className={styles.settingsButton}>Help</button>
-      <button className={styles.settingsButton}>
-        Delete Account
-      </button> */}
       <button className={style.button}>
         <Link to="/login">Log In</Link>
       </button>
-      <button className={style.button}>
+      <button className={style.button} >
         <Link to="/signup">Sign Up</Link>
       </button>
     </div>

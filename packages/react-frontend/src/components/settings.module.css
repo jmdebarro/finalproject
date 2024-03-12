@@ -43,6 +43,8 @@
     background-color: grey;
     color: black;
     width: 30%;
-    padding: 20px;
+    padding: 10px;
     margin: 20px;
+    font-size: 25px;
+    font-style: bold;
   }
