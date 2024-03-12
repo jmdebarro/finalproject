@@ -31,29 +31,6 @@ describe('Navigate to Post', () => {
   })
 })
 
-// describe('Login Test', () => {
-//   it('should navigate to the login page and log in', () => {
-//     // Visit the homepage
-//     cy.visit('https://delightful-island-0985f9e1e.4.azurestaticapps.net/')
-
-//     // Open the menu
-//     cy.get('.menuButton').click()
-
-//     // Click on the 'Settings' button in the menu
-//     cy.get('.sidebarButton').contains('Settings').click()
-
-//     // Click on the 'Log In' button
-//     cy.get('.button').contains('Log In').click()
-
-//     // Fill out the login form
-//     cy.get('input[name="username"]').type('nmandke')
-//     cy.get('input[name="password"]').type('1234')
-
-//     // Submit the login form
-//     cy.get('button[type="submit"]').click()
-//   })
-// })
-
 
 
 
@@ -77,7 +54,7 @@ describe('Navigate to Settings', () => {
 
 describe('Navigate to Settings', () => {
   beforeEach(() => {
-    cy.visit('https://delightful-island-0985f9e1e.4.azurestaticapps.net/') // replace with your app's URL
+    cy.visit('http://localhost:3000') // replace with your app's URL
 
     // Click the menu button to open the sidebar
     cy.get('#menu').click()
@@ -112,52 +89,52 @@ describe('Navigate to Settings', () => {
  
 })
 
-// describe('Post Item', () => {
-//   beforeEach(() => {
-//     cy.visit('https://delightful-island-0985f9e1e.4.azurestaticapps.net/') // replace with your app's URL
+describe('Post Item', () => {
+  beforeEach(() => {
+    cy.visit('http://localhost:3000') // replace with your app's URL
 
-//     // Click the menu button to open the sidebar
-//     cy.get('#menu').click()
+    // Click the menu button to open the sidebar
+    cy.get('#menu').click()
 
-//     // Click the 'Settings' button in the sidebar
-//     // cy.get('.sidebarButton').contains('Settings').click()
-//     cy.get('button').contains('Settings').click()
+    // Click the 'Settings' button in the sidebar
+    // cy.get('.sidebarButton').contains('Settings').click()
+    cy.get('button').contains('Settings').click()
 
-//     // Click the 'Log In' button in the sidebar
-//     cy.get('button').contains('Log In').click()
+    // Click the 'Log In' button in the sidebar
+    cy.get('button').contains('Log In').click()
 
-//     // Fill in the login form
-//     // Replace 'input[name="username"]' and 'input[name="password"]' with the actual selectors for the username and password fields
-//     cy.get('input[name="username"]').type('nmandke')
-//     cy.get('input[name="password"]').type('1234')
+    // Fill in the login form
+    // Replace 'input[name="username"]' and 'input[name="password"]' with the actual selectors for the username and password fields
+    cy.get('input[name="username"]').type('nmandke')
+    cy.get('input[name="password"]').type('1234')
 
-//     // Click the 'Submit' button
-//     cy.get('input[type="button"]').click()
+    // Click the 'Submit' button
+    cy.get('input[type="button"]').click()
 
-//     cy.visit('https://delightful-island-0985f9e1e.4.azurestaticapps.net/') // replace with your app's URL
-//     cy.get('button').contains('Post Item').click()
-//     cy.url().should('include', '/post')
-//   })
+    // Go to the Post Item page
+    cy.get('button').contains('Post Item').click()
+    cy.url().should('include', '/post')
+  })
 
-//   it('should fill out and submit the form with a picture', () => {
-//     cy.get('input[name="name"]').type('Nintendo 3DS')
-//     cy.get('textarea[name="description"]').type('This is a Nintendo 3DS, a technology item. It is in good condition and comes with a charger and a case. Posted for testing.')
-//     cy.get('select[name="tags"]').select('Technology')
-//     cy.get('select[name="pickUpType"]').select('Drop Off')
-//     cy.get('textarea[name="pickUpLocation"]').type('Test Location')
+  it('should fill out and submit the form with a picture', () => {
+    cy.get('input[name="name"]').type('Nintendo 3DS')
+    cy.get('textarea[name="description"]').type('This is a Nintendo 3DS, a technology item. It is in good condition and comes with a charger and a case. Posted for testing.')
+    cy.get('select[name="tags"]').select('Technology')
+    cy.get('select[name="pickUpType"]').select('Drop Off')
+    cy.get('textarea[name="pickUpLocation"]').type('Test Location')
   
-//     // Upload a picture
-//     cy.fixture('3ds_image.jpg', 'binary')
-//       .then(Cypress.Blob.binaryStringToBlob)
-//       .then(fileContent => {
-//         cy.get('input[type="file"]').attachFile({
-//           fileContent,
-//           fileName: '3ds_image.jpg',
-//           mimeType: 'image/jpeg',
-//           encoding: 'utf-8'
-//         })
-//       })
+    // Upload a picture
+    cy.fixture('3ds_image.jpg', 'binary')
+      .then(Cypress.Blob.binaryStringToBlob)
+      .then(fileContent => {
+        cy.get('input[type="file"]').attachFile({
+          fileContent,
+          fileName: '3ds_image.jpg',
+          mimeType: 'image/jpeg',
+          encoding: 'utf-8'
+        })
+      })
   
-//     cy.get('button[type="submit"]').click()
-//   })
-// })
+    cy.get('button[type="submit"]').click()
+  })
+})
