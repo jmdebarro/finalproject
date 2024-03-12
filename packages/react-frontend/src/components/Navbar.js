@@ -72,6 +72,7 @@ export default function Navbar() {
           <button
             className={style.menuButton}
             onClick={() => setSidebarOpen(!sidebarOpen)}
+            id="menu"
           >
             <img src={menuButtonImage} alt="Menu" />
           </button>

@@ -19,14 +19,19 @@ function ItemBox(props) {
       </div>
       <div className={style.info}>
         <div className={style.box}>
-          Description: <br></br>{props.description}
+          Description: <br></br>
+          {props.description}
         </div>
-        <div className={style.box}> 
+        <div className={style.box}>
           Pick Up: <br></br> {props.pickUpType}
         </div>
         <div className={style.box}>
-          Location: <br></br>{props.pickUpLocation}
+          Location: <br></br>
+          {props.pickUpLocation}
         </div>
+        {props.showDeleteButton ? (
+          <input type="button" value={"Delete"} />
+        ) : null}
       </div>
     </Link>
   );
@@ -38,6 +43,7 @@ function MainComponent(props) {
       {props.itemData.map((item) => (
         <ItemBox
           key={item._id}
+          showDeleteButton={props.showDeleteButton}
           {...item}
         />
       ))}
