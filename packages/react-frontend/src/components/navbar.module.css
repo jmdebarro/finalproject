@@ -10,38 +10,38 @@
   text-align: center;
   background-color: #1b5e20; /* Dark green background */
   color: white;
-  padding: 10px 40px; /* Increased padding for better spacing */
+  padding: 0px 0px; /* Increased padding for better spacing */
   border-radius: 50px; /* Softening edges */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
 
   /* Debug border */
   /* border: solid red; */
-
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 li {
   display: inline;
-  margin-right: 30px; 
-
+  margin-right: 30px;
 }
 
 .button {
+  position: relative;
+  right: 50px;
   background-color: #2c892f;
   color: white;
-  padding: 10px 20px;
-  font-size: 18px; 
+  padding: 10px 50px;
+  font-size: 18px;
   cursor: pointer;
   border: none;
   border-radius: 5px;
   margin-right: 150%;
-  transition: background-color 0.3s ease; 
-  font-family: 'Roboto', sans-serif; 
+  transition: background-color 0.3s ease;
+  font-family: "Roboto", sans-serif;
 }
 
 .navbar a {
@@ -50,17 +50,17 @@ li {
   text-decoration: none;
   letter-spacing: 1px;
   transition: color 0.3s ease; /* Smooth color transition */
-  font-family: 'Roboto', sans-serif; /* More professional font */
+  font-family: "Roboto", sans-serif; /* More professional font */
 }
 
 .website {
   margin-left: 40px;
   font-size: 32px;
-  font-family: 'Montserrat', sans-serif; /* Using a common sans-serif font */
+  font-family: "Montserrat", sans-serif; /* Using a common sans-serif font */
 }
 
 .button:hover {
-  background-color: #1b5e20; /* Dark green hover color */
+  background-color: #2c6931; /* Dark green hover color */
 }
 
 .navbar a:hover {
@@ -69,7 +69,7 @@ li {
 
 .menuButton {
   position: absolute;
-  top: 0px;
+  top: 7px;
   right: 30px;
   background: none;
   border: none;
