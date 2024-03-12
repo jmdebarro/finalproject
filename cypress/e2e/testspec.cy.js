@@ -8,7 +8,6 @@ describe('Navbar', () => {
   it('should render the Navbar', () => {
     cy.get('nav').should('exist') // replace 'nav' with a selector that selects your Navbar
   })
-
 })
 
 describe('Search', () => {
@@ -19,9 +18,6 @@ describe('Search', () => {
   it('should render the Search', () => {
     cy.get('#Search').should('exist') // replace 'nav' with a selector that selects your Navbar
   })
-  // Add more test cases as needed
-
-  // Add more test cases as needed
 })
 
 describe('Navigate to Post', () => {
@@ -33,7 +29,6 @@ describe('Navigate to Post', () => {
     cy.get('button').contains('Post Item').click()
     cy.url().should('include', '/post')
   })
-
 })
 
 describe('Login Test', () => {
@@ -66,7 +61,6 @@ describe('Post Item', () => {
     cy.url().should('include', '/post')
   })
 
-
   it('should fill out and submit the form with a picture', () => {
     cy.get('input[name="name"]').type('Nintendo 3DS')
     cy.get('textarea[name="description"]').type('This is a Nintendo 3DS, a technology item. It is in good condition and comes with a charger and a case. Posted for testing.')
@@ -87,7 +81,8 @@ describe('Post Item', () => {
       })
   
     cy.get('button[type="submit"]').click()
-})
+  })
+}) // This was missing
 
 describe('Navigate to Settings', () => {
   beforeEach(() => {
