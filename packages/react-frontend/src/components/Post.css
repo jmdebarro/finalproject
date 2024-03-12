@@ -21,6 +21,19 @@
       align-items: center;
   }
   
+  .post-container form .boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .post-container .box {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
   .post-container form label {
       color: white;
       font-family: 'Roboto', sans-serif; /* Professional and unique font */
@@ -51,3 +64,4 @@
   .post-container form button:hover {
       background-color: #96cc7e;
 }
+

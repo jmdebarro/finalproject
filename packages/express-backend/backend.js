@@ -3,23 +3,26 @@ import express from "express";
 import cors from "cors";
 import userServices from "./user-services.js";
 import itemServices from "./item-services.js";
-
+import {
+  authenticateUser,
+  registerUser,
+  loginUser
+} from "./auth.js";
 const app = express();
 const port = 8000;
 
 app.use(cors());
-app.use(express.json());
+
+app.use(express.json({ limit: "50mb" }));
 
 app.get("/", (req, res) => {
   res.send("Hello Slogrammers!");
 });
 
-
 // All api requests now go to freestuff-api.azurewebsites.net add /items and /users to this
 app.listen(process.env.PORT || port, () => {
   console.log("Listening at freestuff-api.azurewebsites.net.");
 });
-
 
 // USER METHODS
 
@@ -87,6 +90,7 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
+//TODO: Protect all data paths with authenticateUser except signup and login
 app.post("/users", async (req, res) => {
   try {
     const userToAdd = req.body;
@@ -97,6 +101,9 @@ app.post("/users", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
+
+app.post("/signup", registerUser);
+app.post("/login", loginUser);
 
 // ITEM METHODS
 // app.get("/item", (req, res) => {
@@ -135,7 +142,7 @@ app.get("/items", async (req, res) => {
         tags,
         userId
       );
-      console.log(JSON.stringify(result, null, 2));
+      // console.log(JSON.stringify(result, null, 2));
       result = { items_list: result };
       res.send(result);
     }
@@ -177,7 +184,7 @@ app.delete("/items/:id", async (req, res) => {
   }
 });
 
-app.post("/items", async (req, res) => {
+app.post("/items", authenticateUser, async (req, res) => {
   try {
     const itemToAdd = req.body;
     console.log("Logging data");
@@ -185,6 +192,27 @@ app.post("/items", async (req, res) => {
 
     let newItem = await itemServices.addItem(itemToAdd);
     res.status(201).send({ item: newItem });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.patch("/items/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const partialUpdates = req.body;
+
+    let updatedItem = await itemServices.updateItemById(
+      id,
+      partialUpdates
+    );
+
+    if (updatedItem) {
+      res.status(200).send({ item: updatedItem });
+    } else {
+      res.status(404).send({ message: "Item not found" });
+    }
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");

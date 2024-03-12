@@ -16,6 +16,7 @@
 
   /* Debug border */
   /* border: solid red; */
+
 }
 
 ul {
@@ -27,6 +28,7 @@ ul {
 li {
   display: inline;
   margin-right: 30px; /* Reduced margin for better spacing */
+
 }
 
 .button {
@@ -62,4 +64,52 @@ li {
 
 .navbar a:hover {
   color: #2c892f; /* Light green hover color */
+}
+
+.menuButton {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menuButton img {
+  width: 60px;
+  height: 60px;
+}
+
+.sidebarOpen {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0);
+  z-index: 20;
+}
+
+.sidebarClosed {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+  z-index: 20;
+}
+
+.sidebarButton {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
 }

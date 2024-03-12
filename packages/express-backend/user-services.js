@@ -1,6 +1,31 @@
 import mongoose from "mongoose";
-import userModel from "./user.js";
+import User from "./user.js";
 
+import { MongoClient, ServerApiVersion } from "mongodb";
+import dotenv from "dotenv";
+dotenv.config();
+
+const uri = process.env.MONGO_URI;
+
+connectToDB()
+  .then(() => {
+    console.log("userServices connected to DB");
+  })
+  .catch((error) => {
+    console.log("Failed to connect to DB");
+  });
+
+async function connectToDB() {
+  mongoose.connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true
+    }
+  });
+}
 // Use for local server, but try and get acquainted with cloud DB
 // mongoose.set("debug", true);
 
@@ -19,54 +44,34 @@ function getUsers(name, job, empId) {
     job === undefined &&
     empId === undefined
   ) {
-    promise = userModel.find();
-  } else if (name && !job) {
-    promise = findUserByName(name);
-  } else if (job && !name) {
-    promise = findUserByJob(job);
-  } else if (empId) {
-    promise = findUserByEmpId(empId);
+    promise = User.find();
   }
   return promise;
 }
 
 function findUserById(id) {
-  return userModel.findById(id);
+  return User.findById(id);
 }
 
 function addUser(user) {
-  const userToAdd = new userModel(user);
+  console.log("adding user");
+  const userToAdd = new User(user);
   const promise = userToAdd.save();
   return promise;
 }
 
-function findUserByName(name) {
-  return userModel.find({ name: name });
-}
-
-function findUserByJob(job) {
-  return userModel.find({ job: job });
-}
-
-function findUserByEmpId(empId) {
-  return userModel.find({ empId: empId });
-}
-
-function findUserByNameAndJob(name, job) {
-  return userModel.find({ name: name, job: job });
+function findUserByUserName(userName) {
+  return User.find({ userName: userName });
 }
 
 function deleteUserById(id) {
-  return userModel.findByIdAndDelete(id);
+  return User.findByIdAndDelete(id);
 }
 
 export default {
   addUser,
   getUsers,
   findUserById,
-  findUserByName,
-  findUserByJob,
-  findUserByEmpId,
-  findUserByNameAndJob,
+  findUserByUserName,
   deleteUserById
 };
