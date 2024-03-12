@@ -87,19 +87,11 @@ export function loginUser(req, res) {
   //  (c) => c.username === username
   //);
   userServices.findUserByUserName(username).then((user) => {
-    console.log("user object found: " + user);
+    console.log("object found: " + user);
+    console.log("user[0]: " + user[0]);
     console.log("typeof user" + typeof user);
     console.log("password entered: " + pwd);
-
-    console.log("json.parse: ");
-    obj = JSON.parse(user);
-    console.log("obj: " + obj);
-    console.log("obj.password: " + obj.password);
-    console.log("obj[password] " + obj["password"]);
-
-    console.log(
-      "user[password in quotes]: " + user["password"]
-    );
+    console.log("user[0].password" + user[0].password);
 
     /*bcrypt
       .compare(pwd, user["password"])
