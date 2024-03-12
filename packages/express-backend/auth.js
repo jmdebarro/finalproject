@@ -9,27 +9,30 @@ const creds = [];
 
 export function registerUser(req, res) {
   const { username, pwd } = req.body; // from form
-
   if (!username || !pwd) {
     res.status(400).send("Bad request: Invalid input data.");
-  } else if (creds.find((c) => c.username === username)) {
-    res.status(409).send("Username already taken");
-  } else {
-    bcrypt
-      .genSalt(10)
-      .then((salt) => bcrypt.hash(pwd, salt))
-      .then((hashedPassword) => {
-        generateAccessToken(username).then((token) => {
-          console.log("Token:", token);
-          res.status(201).send({ token: token });
-          creds.push({ username, hashedPassword });
-          addUser({
-            userName: username,
-            password: hashedPassword
-          });
+    return;
+  }
+  userServices.findUserByUserName(username).then((result) => {
+    if (result.length > 0) {
+      res.status(409).send("Username already taken");
+      return;
+    }
+  });
+  bcrypt
+    .genSalt(10)
+    .then((salt) => bcrypt.hash(pwd, salt))
+    .then((hashedPassword) => {
+      generateAccessToken(username).then((token) => {
+        console.log("Token:", token);
+        res.status(201).send({ token: token });
+        //creds.push({ username, hashedPassword });
+        addUser({
+          userName: username,
+          password: hashedPassword
         });
       });
-  }
+    });
 }
 
 async function addUser(userToAdd) {
@@ -82,34 +85,32 @@ export function authenticateUser(req, res, next) {
 }
 
 export function loginUser(req, res) {
-  const { username, pwd } = req.body; // from form
+  const { username, pwd } = req.body;
+  // from form
   //const retrievedUser = creds.find(
   //  (c) => c.username === username
   //);
-  userServices.findUserByUserName(username).then((user) => {
-    console.log("object found: " + user);
-    console.log("user[0]: " + user[0]);
-    console.log("typeof user" + typeof user);
-    console.log("password entered: " + pwd);
-    console.log("user[0].password" + user[0].password);
-
-    /*bcrypt
-      .compare(pwd, user["password"])
-      .then((matched) => {
-        if (matched) {
-          generateAccessToken(username).then((token) => {
-            res.status(200).send({ token: token });
-          });
-        } else {
-          // invalid password
+  userServices.findUserByUserName(username).then((results) => {
+    if (results.length == 0) {
+      res.status(404).send("Username Not Found");
+    } else {
+      bcrypt
+        .compare(pwd, results[0].password)
+        .then((matched) => {
+          if (matched) {
+            generateAccessToken(username).then((token) => {
+              res.status(200).send({ token: token });
+            });
+          } else {
+            // invalid password
+            res.status(401).send("Unauthorized");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
           res.status(401).send("Unauthorized");
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        res.status(401).send("Unauthorized");
-      });
-      */
+        });
+    }
   });
 }
 
