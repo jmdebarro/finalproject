@@ -38,7 +38,7 @@ function MyProfile(props) {
       <div className={styles.profile}>
         {/* Use the .profileBubble class for the profile image */}
         <div className={styles.profileInfo}>
-          <h2>{user ? user.userName : "Not logged in"}</h2>
+          <h2 id="username">{user ? user.userName : "Not logged in"}</h2>
           <p>Email: {user ? user.email : "n/a"}</p>
           <p>Phone Number: {user ? user.phoneNumber : "n/a"}</p>
         </div>
