@@ -91,18 +91,17 @@ export function loginUser(req, res) {
     console.log("typeof user" + typeof user);
     console.log("password entered: " + pwd);
 
-    console.log(".json(): ");
-    user.json().then((obj) => {
-      console.log(obj);
-      console.log(obj.password);
-      console.log(obj["password"]);
-    });
+    console.log("json.parse: ");
+    obj = JSON.parse(user);
+    console.log("obj: " + obj);
+    console.log("obj.password: " + obj.password);
+    console.log("obj[password] " + obj["password"]);
 
     console.log(
       "user[password in quotes]: " + user["password"]
     );
 
-    bcrypt
+    /*bcrypt
       .compare(pwd, user["password"])
       .then((matched) => {
         if (matched) {
@@ -118,7 +117,7 @@ export function loginUser(req, res) {
         console.log(error);
         res.status(401).send("Unauthorized");
       });
-  });
+  }); */
 }
 
 // if (!retrievedUser) {
