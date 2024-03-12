@@ -18,7 +18,7 @@ function Settings(props) {
       });
   }, []);
   return (
-    <div className={style.container}>
+    <div className={style.container} id="Settings">
       <div className={style.profile}>
         {/* Use the .profileBubble class for the profile image */}
         <div className={style.profileInfo}>
