@@ -117,7 +117,8 @@ export function loginUser(req, res) {
         console.log(error);
         res.status(401).send("Unauthorized");
       });
-  }); */
+      */
+  });
 }
 
 // if (!retrievedUser) {
