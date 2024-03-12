@@ -34,7 +34,7 @@ function MyProfile(props) {
       });
   }, []);
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="MyProfile">
       <div className={styles.profile}>
         {/* Use the .profileBubble class for the profile image */}
         <div className={styles.profileInfo}>
