@@ -83,8 +83,8 @@ function Signup(props) {
     setCreds({
       username: "",
       pwd: "",
-      email: "",
-      phoneNumber: ""
+      phoneNumber: "",
+      email: ""
     });
   }
 }
