@@ -10,7 +10,7 @@ function ItemBox(props) {
       to={`/item/${props._id}`}
       {...props}
     >
-      <div className={style.image}>
+      <div className={style.image} id="ItemBox">
         <img
           src={`data:image/jpeg;base64,${props.image}`}
           alt="Base64 Image"
@@ -34,7 +34,7 @@ function ItemBox(props) {
 
 function MainComponent(props) {
   return (
-    <div className={style.item_container}>
+    <div className={style.item_container} id="MainComponent">
       {props.itemData.map((item) => (
         <ItemBox
           key={item._id}

@@ -25,7 +25,7 @@ function ItemsTable({ selectedFilter }) {
   }, []);
 
   return (
-    <div className={"container"}>
+    <div className={"container"} id="ItemsTable">
       <MainComponent itemData={items} />
     </div>
   );
