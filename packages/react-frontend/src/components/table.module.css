@@ -4,13 +4,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: calc(25% - 20px);
-  height: 30vh;
+  width: 31%;
   border-radius: 5px;
   background-color: #1b5e20;
   color: white;
   font-family: 'Roboto', sans-serif;
-
+  text-decoration: none;
 }
 
 
@@ -21,7 +20,7 @@
 }
 
 .image {
-  width: 70%;
+  width: 60%;
   height: 80%;
   background-color: #aed581;
   margin: 5px;
@@ -39,11 +38,12 @@
   margin: 3px;
 }
 
-.description {
+.box {
   background-color: #2c892f;
-  height: 90px;
+  height: 25%;
   margin: 5px;
   border-radius: 5px;
+  border: solid black 1px;
 }
 
 .user {
