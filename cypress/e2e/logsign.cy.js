@@ -42,4 +42,32 @@ describe('Sign up -> Log in -> Check Logged in', () => {
     })
 
 })
+
+describe('Log in and check logged in', () => {
+    const info = Math.random().toString();
+    beforeEach(() => {
+        cy.visit('https://delightful-island-0985f9e1e.4.azurestaticapps.net/')
+    // Click the menu button to open the sidebar
+    cy.get('#menu').click()
+
+    // Click the 'Settings' button in the sidebar
+    cy.get('button').contains('Settings').click()
+    cy.get('button').contains('Log In').click()
+    cy.get('input[name="username"]').type('jdebarro')
+    cy.get('input[name="password"]').type('jdebarro')
+    cy.get('input[type="button"]').click()
+    cy.wait(1000)
+
+    cy.get('#menu').click()
+    cy.get('button').contains('My Profile').click()
+    })
+
+    it('should sign up and log in', () => {
+        // Check that the username is 'nmandke'
+        cy.get('#username').should('contain', 'jdebarro')
+        cy.get('p').should('contain', 'jmdebarro@gmail.com')
+        cy.get('p').should('contain', '9495252175')
+    })
+
+})
   
