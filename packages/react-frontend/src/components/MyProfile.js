@@ -36,7 +36,6 @@ function MyProfile(props) {
   return (
     <div className={styles.container} id="MyProfile">
       <div className={styles.profile}>
-        {/* Use the .profileBubble class for the profile image */}
         <div className={styles.profileInfo}>
           <h2 id="username">{user ? user.userName : "Not logged in"}</h2>
           <p>Email: {user ? user.email : "n/a"}</p>
@@ -44,7 +43,6 @@ function MyProfile(props) {
         </div>
       </div>
       <h2>My posted items:</h2>{" "}
-      {/* Add a header before the items */}
       <MainComponent itemData={items} showDeleteButton={true} />
     </div>
   );
