@@ -161,6 +161,7 @@ app.get("/items/:id", async (req, res) => {
 
 app.delete("/items/:id", async (req, res) => {
   try {
+    console.log(req);
     const id = req.params.id; // Or simply req.params.id
     let result = await itemServices.deleteItemById(id);
     if (result === null) {
