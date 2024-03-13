@@ -15,6 +15,7 @@ function fetchUser(filter) {
   return promise;
 }
 function MyProfile(props) {
+  const [fetchTrigger, setFetchTrigger] = useState(0);
   const [items, setItems] = useState([]);
   const [user, setUser] = useState([]);
   useEffect(() => {
@@ -33,6 +34,18 @@ function MyProfile(props) {
         console.log(error);
       });
   }, []);
+  useEffect(() => {
+    fetchItems(props.userId)
+      .then((res) => res.json())
+      .then((json) => setItems(json["items_list"]))
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [fetchTrigger]); 
+  const handleItemDelete = () => {
+    setFetchTrigger(prev => prev + 1); // Increment to trigger re-fetch
+  };
+
   return (
     <div className={styles.container} id="MyProfile">
       <div className={styles.profile}>
@@ -43,7 +56,7 @@ function MyProfile(props) {
         </div>
       </div>
       <h2>My posted items:</h2>{" "}
-      <MainComponent itemData={items} showDeleteButton={true} />
+      <MainComponent key={items.length} itemData={items} showDeleteButton={true} onItemDelete={handleItemDelete} />
     </div>
   );
 }

@@ -3,28 +3,38 @@ import style from "./table.module.css";
 import { Link } from "react-router-dom";
 
 function ItemBox(props) {
-  // Handle the delete operation
+
   const handleDelete = (e, id) => {
     e.preventDefault(); // Prevent navigating
-
+  
     console.log("deleting this item:", id);
-
+  
     // Confirm before deleting
     if (window.confirm(`Are you sure you want to delete this item: ${id}?`)) {
-      fetch(`http://freestuff-api.azurewebsites.net/items/${id}`, { // Corrected URL concatenation
+      fetch(`https://freestuff-api.azurewebsites.net/items/${id}`, {
         method: "DELETE",
       })
         .then((response) => {
           if (!response.ok) {
             throw new Error('Network response was not ok');
           }
-          return response.json(); // This line may need to be removed if the response does not contain a body
+          // Check if the response has content
+          if (response.status !== 204) {
+            return response.json();
+          } else {
+            // If no content, directly return to next then block
+            return;
+          }
         })
         .then((data) => {
-          console.log("Item deleted:", data);
-          // Optionally, refresh or update the parent component's state here
+          if (data) {
+            console.log("Item deleted:", data);
+          } else {
+            console.log("Item deleted, no content in response");
+          }
+          // Call the onDelete function passed via props
           if (props.onDelete) {
-            props.onDelete(id);
+            props.onDelete();
           }
         })
         .catch((error) => {
@@ -32,6 +42,8 @@ function ItemBox(props) {
         });
     }
   };
+  
+
 
   return (
     <Link
@@ -70,12 +82,14 @@ function ItemBox(props) {
 
 
 function MainComponent(props) {
+
   return (
     <div className={style.item_container} id="MainComponent">
       {props.itemData.map((item) => (
         <ItemBox
           key={item._id}
           showDeleteButton={props.showDeleteButton}
+          onDelete={props.onItemDelete}
           {...item}
         />
       ))}
