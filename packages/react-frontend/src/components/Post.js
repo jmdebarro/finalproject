@@ -21,7 +21,6 @@ function Post(props) {
     }));
   };
 
-
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -29,9 +28,9 @@ function Post(props) {
       reader.onload = (e) => {
         // Get the result, and remove the prefix
         let base64String = e.target.result;
-        const base64Data = base64String.split(',')[1]; // This removes the 'data:image/jpeg;base64,' part
+        const base64Data = base64String.split(",")[1]; // This removes the 'data:image/jpeg;base64,' part
 
-        setItem(prevItem => ({
+        setItem((prevItem) => ({
           ...prevItem,
           image: base64Data // Set only the pure base64 string
         }));
@@ -39,7 +38,7 @@ function Post(props) {
       reader.readAsDataURL(file);
     }
   };
- 
+
   function submitForm(e) {
     e.preventDefault();
     console.log(item);
@@ -61,16 +60,6 @@ function Post(props) {
       <div className="boxes">
         <div className="box">
           <h2>Photo & Description</h2>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="name"
-              value={item.name}
-              onChange={handleChange}
-              placeholder="Enter item name..."
-            />
-          </label>
           <label>
             Upload Photo:
             <input
