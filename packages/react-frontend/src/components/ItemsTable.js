@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // import  Table from "./Table";
 import MainComponent from "./Item";
 
+//table of items on home page
 function ItemsTable({ selectedFilter }) {
   const [items, setItems] = useState([]);
   const [users, setUsers] = useState([]);

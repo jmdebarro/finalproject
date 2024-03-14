@@ -1,7 +1,7 @@
 import React from "react";
 import "./Post.css";
 import { useState } from "react";
-
+//interface to post an item
 function Post(props) {
   const [item, setItem] = useState({
     name: "",

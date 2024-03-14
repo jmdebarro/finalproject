@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import style from "./settings.module.css";
-
+//displays current user info and links to login and signup pages
 function Settings(props) {
   const [user, setUser] = useState([]);
   function fetchUser(filter) {

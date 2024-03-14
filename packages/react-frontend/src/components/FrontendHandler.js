@@ -5,7 +5,6 @@ import Login from "./Login";
 import NotFoundPage from "./NotFoundPage";
 import Post from "./Post";
 import Settings from "./Settings";
-// import UserProfile from "./UserProfile";
 import MyProfile from "./MyProfile";
 import ItemPage from "./ItemPage";
 import Search from "./Search";
@@ -17,8 +16,8 @@ import {
 } from "react-router-dom";
 
 // Default Domain: freestuff-api.azurewebsites.net
-// Where we will fetch backend info from eventually
 
+//This component handles all frontend authentication as well as the react router
 function FrontendHandler() {
   const INVALID_TOKEN = "INVALID_TOKEN";
   const [token, setToken] = useState(INVALID_TOKEN);
@@ -84,15 +83,6 @@ function FrontendHandler() {
         </>
       )
     },
-    // {
-    //   path: "/userprofile",
-    //   element: (
-    //     <>
-    //       <Navbar/>
-    //       <UserProfile/>
-    //     </>
-    //   )
-    // }
     {
       path: "/myprofile",
       element: (
@@ -202,7 +192,5 @@ function FrontendHandler() {
     </div>
   );
 }
-
-// Create a root
 
 export default FrontendHandler;

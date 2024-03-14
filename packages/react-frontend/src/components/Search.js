@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./Search.module.css";
 import ItemsTable from "./ItemsTable";
-
+//set item filters
 export default function Search() {
   const [selectedFilter, setSelectedFilter] = useState("");
   return (

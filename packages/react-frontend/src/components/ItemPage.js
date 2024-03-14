@@ -8,7 +8,7 @@ function fetchItem(id) {
   );
   return promise;
 }
-
+//the main page listing all items and filters
 function ItemPage() {
   const [item, setItem] = useState([]);
   const [user, setUser] = useState([]);
@@ -32,7 +32,11 @@ function ItemPage() {
       });
   }, [itemId, user]);
   return (
-    <div key={item._id} className={style.item_box} id="ItemPage">
+    <div
+      key={item._id}
+      className={style.item_box}
+      id="ItemPage"
+    >
       <div className={style.image}>
         <img
           src={`data:image/jpeg;base64,${item.image}`}

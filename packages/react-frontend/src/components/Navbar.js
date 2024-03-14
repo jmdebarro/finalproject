@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import style from "./navbar.module.css";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import menuButtonImage from "./Menu_Button.png";
 import Search from "./Search";
@@ -57,13 +57,15 @@ export default function Navbar() {
       <header className={style.navbar}>
         <nav className={style.navbar}>
           <h1>
-            <Link to="/" className={style.website}>Free Stuff</Link>
+            <Link to="/" className={style.website}>
+              Free Stuff
+            </Link>
           </h1>
           <ul>
             <li>
               <button
                 className={style.button}
-                onClick={() => navigate('/post')}
+                onClick={() => navigate("/post")}
               >
                 Post Item
               </button>

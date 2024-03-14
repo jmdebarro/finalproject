@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import style from "./UserProfile.module.css";
 import { Link } from "react-router-dom";
-
+//NOT YET IMPLEMENTED, this feature was out of scope.
+//profile for a different user than the one who is logged in.
 function UserProfile() {
   const [userData, setUserData] = useState(null);
 

@@ -12,14 +12,13 @@ const app = express();
 const port = 8000;
 
 app.use(cors());
-
 app.use(express.json({ limit: "50mb" }));
 
 app.get("/", (req, res) => {
   res.send("Hello Slogrammers!");
 });
 
-// All api requests now go to freestuff-api.azurewebsites.net add /items and /users to this
+// All api requests now go to freestuff-api.azurewebsites.net
 app.listen(process.env.PORT || port, () => {
   console.log("Listening at freestuff-api.azurewebsites.net.");
 });
@@ -51,7 +50,7 @@ app.get("/users", async (req, res) => {
 
 app.get("/users/:id", async (req, res) => {
   try {
-    const id = req.params["id"]; //or req.params.id
+    const id = req.params["id"];
     let result = await userServices.findUserById(id);
     console.log(JSON.stringify(result, null, 2));
     if (result === undefined) {
@@ -67,10 +66,9 @@ app.get("/users/:id", async (req, res) => {
 
 app.delete("/users/:id", async (req, res) => {
   try {
-    const id = req.params.id; // Or simply req.params.id
+    const id = req.params.id;
     let result = await userServices.deleteUserById(id);
     if (result === null) {
-      // findByIdAndDelete returns null if no document found
       res.status(404).send("Resource not found.");
     } else {
       res.status(204).send("User Deleted");
@@ -81,7 +79,6 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
-//TODO: Protect all data paths with authenticateUser except signup and login
 app.post("/users", async (req, res) => {
   try {
     const userToAdd = req.body;
@@ -95,18 +92,6 @@ app.post("/users", async (req, res) => {
 
 app.post("/signup", registerUser);
 app.post("/login", loginUser);
-
-// ITEM METHODS
-// app.get("/item", (req, res) => {
-//   console.log("Inside Get");
-//   const filters = req.query.filters;
-//   const user = req.query.user;
-//   getItems(filters, user).then((items) =>{
-//     res.send(items);
-//   }).catch((error) => {
-//     res.status(500).send("Internal Server Error");
-//   })
-//   });
 
 app.get("/items", async (req, res) => {
   try {
@@ -133,7 +118,6 @@ app.get("/items", async (req, res) => {
         tags,
         userId
       );
-      // console.log(JSON.stringify(result, null, 2));
       result = { items_list: result };
       res.send(result);
     }
@@ -210,18 +194,3 @@ app.patch("/items/:id", async (req, res) => {
     res.status(500).send("Internal Server Error");
   }
 });
-
-// app.post("/item", (req, res) => {
-//   const itemToAdd = req.body;
-//   const id = Math.floor(Math.random() * 100000).toString();
-//   itemToAdd["id"] = id;
-//   addItem(itemToAdd).then((item) => {
-//     if (item === undefined) {
-//       res.status(404).send("Unable to add item");
-//     } else {
-//       res.status(201).send(item);
-//     }
-//   }).catch((error) => {
-//     res.status(500).send("Internal Server Error")
-//   })
-// });

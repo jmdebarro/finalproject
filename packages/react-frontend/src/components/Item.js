@@ -2,21 +2,28 @@ import React, { useEffect, useState } from "react";
 import style from "./table.module.css";
 import { Link } from "react-router-dom";
 
+//This component is for the display box of a single item, which can exist on the home page of myprofile page.
 function ItemBox(props) {
-
   const handleDelete = (e, id) => {
     e.preventDefault(); // Prevent navigating
-  
+
     console.log("deleting this item:", id);
-  
+
     // Confirm before deleting
-    if (window.confirm(`Are you sure you want to delete this item: ${id}?`)) {
-      fetch(`https://freestuff-api.azurewebsites.net/items/${id}`, {
-        method: "DELETE",
-      })
+    if (
+      window.confirm(
+        `Are you sure you want to delete this item: ${id}?`
+      )
+    ) {
+      fetch(
+        `https://freestuff-api.azurewebsites.net/items/${id}`,
+        {
+          method: "DELETE"
+        }
+      )
         .then((response) => {
           if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error("Network response was not ok");
           }
           // Check if the response has content
           if (response.status !== 204) {
@@ -42,8 +49,6 @@ function ItemBox(props) {
         });
     }
   };
-  
-
 
   return (
     <Link
@@ -72,17 +77,18 @@ function ItemBox(props) {
           {props.pickUpLocation}
         </div>
         {props.showDeleteButton ? (
-          <input type="button" value={"Delete"} onClick={(e) => handleDelete(e, props._id)} />
+          <input
+            type="button"
+            value={"Delete"}
+            onClick={(e) => handleDelete(e, props._id)}
+          />
         ) : null}
       </div>
     </Link>
   );
 }
-
-
-
+//list of multiple items
 function MainComponent(props) {
-
   return (
     <div className={style.item_container} id="MainComponent">
       {props.itemData.map((item) => (
