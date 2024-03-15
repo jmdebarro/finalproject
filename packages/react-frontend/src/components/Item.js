@@ -51,6 +51,7 @@ function ItemBox(props) {
   };
 
   return (
+    // For clickable item to redirect to page
     <Link
       key={props._id}
       className={style.item_box}
@@ -87,6 +88,7 @@ function ItemBox(props) {
     </Link>
   );
 }
+
 //list of multiple items
 function MainComponent(props) {
   return (

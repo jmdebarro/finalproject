@@ -31,6 +31,7 @@ function ItemPage() {
         console.log(item);
       });
   }, [itemId, user]);
+  
   return (
     <div
       key={item._id}
