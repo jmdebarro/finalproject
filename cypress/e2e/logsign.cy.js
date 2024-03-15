@@ -1,5 +1,5 @@
+const info = Math.random().toString();
 describe('Sign up -> Log in -> Check Logged in', () => {
-    const info = Math.random().toString();
     beforeEach(() => {
         cy.visit('https://delightful-island-0985f9e1e.4.azurestaticapps.net/')
     // Click the menu button to open the sidebar
@@ -70,4 +70,4 @@ describe('Log in and check logged in', () => {
     })
 
 })
-  
+

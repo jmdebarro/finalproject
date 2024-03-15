@@ -65,7 +65,7 @@ function ItemBox(props) {
         />
       </div>
       <div className={style.info}>
-        <div className={style.box}>
+        <div className={style.box} id="Image">
           Description: <br></br>
           {props.description}
         </div>
