@@ -5,7 +5,6 @@ import Login from "./Login";
 import NotFoundPage from "./NotFoundPage";
 import Post from "./Post";
 import Settings from "./Settings";
-// import UserProfile from "./UserProfile";
 import MyProfile from "./MyProfile";
 import ItemPage from "./ItemPage";
 import Search from "./Search";
@@ -17,13 +16,14 @@ import {
 } from "react-router-dom";
 
 // Default Domain: freestuff-api.azurewebsites.net
-// Where we will fetch backend info from eventually
 
+//This component handles all frontend authentication as well as the react router
 function FrontendHandler() {
   const INVALID_TOKEN = "INVALID_TOKEN";
   const [token, setToken] = useState(INVALID_TOKEN);
   const [message, setMessage] = useState("");
-
+  const [currUserName, setCurrUserName] =
+    useState("INVALID_USER");
   const router = createBrowserRouter([
     {
       path: "/",
@@ -70,7 +70,7 @@ function FrontendHandler() {
       element: (
         <>
           <Navbar />
-          <Settings />
+          <Settings userId={currUserName} />
         </>
       )
     },
@@ -83,21 +83,12 @@ function FrontendHandler() {
         </>
       )
     },
-    // {
-    //   path: "/userprofile",
-    //   element: (
-    //     <>
-    //       <Navbar/>
-    //       <UserProfile/>
-    //     </>
-    //   )
-    // }
     {
       path: "/myprofile",
       element: (
         <>
           <Navbar />
-          <MyProfile />
+          <MyProfile userId={currUserName} />
         </>
       )
     }
@@ -114,6 +105,8 @@ function FrontendHandler() {
     }
   }
   function postItem(item) {
+    item = { ...item, userId: currUserName };
+    console.log(item);
     console.log("handleSubmit");
     const promise = fetch(
       "https://freestuff-api.azurewebsites.net/items",
@@ -145,6 +138,7 @@ function FrontendHandler() {
           response
             .json()
             .then((payload) => setToken(payload.token));
+          setCurrUserName(creds.username);
           setMessage(`Login successful; auth token saved`);
         } else {
           setMessage(
@@ -175,6 +169,7 @@ function FrontendHandler() {
           response
             .json()
             .then((payload) => setToken(payload.token));
+          setCurrUserName(creds.username);
           setMessage(
             `Signup successful for user: ${creds.username}; auth token saved`
           );
@@ -197,7 +192,5 @@ function FrontendHandler() {
     </div>
   );
 }
-
-// Create a root
 
 export default FrontendHandler;

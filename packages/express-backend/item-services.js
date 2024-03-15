@@ -29,13 +29,6 @@ async function connectToDB() {
 
 function getItems(name, tags, userId) {
   let promise;
-  // console.log(
-  //   "name: %s\ntags: %s, userId: %s\n\n",
-  //   name,
-  //   tags,
-  //   userId
-  // );
-
   if (
     tags === undefined &&
     name === undefined &&
@@ -60,8 +53,6 @@ function findItemByUserId(userId) {
 
 function findItemByTags(tags) {
   console.log("In findItemByTags\ntags: %s\n\n", tags);
-  // This is doing an exact match, we need to use a regular expression.
-  //return itemModel.find({ tags: { $in: tags } });
   const tagRegex = new RegExp(tags, "i");
   return itemModel.find({ tags: { $regex: tagRegex } });
 }
@@ -72,7 +63,6 @@ function findItemByTagsAndUserId(tags, userId) {
     tags,
     userId
   );
-  //return itemModel.find({ tags: { $in: tags }, userId: userId });
 
   const tagRegex = new RegExp(tags, "i");
   return itemModel.find({

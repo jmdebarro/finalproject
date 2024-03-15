@@ -52,8 +52,10 @@
     background-color: #1b5e20;
     color: white;
     width: 30%;
-    padding: 20px;
+    padding: 10px;
     margin: 20px;
+    font-size: 25px;
+    font-style: bold;
     font-family: 'Roboto', sans-serif;
     border: none;
     border-radius: 5px; /* Rounded corners */
