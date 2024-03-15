@@ -2,25 +2,32 @@
     width: 80%;
     margin: 0 auto;
     padding: 20px;
+    background-color: #aed581;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px; /* Rounded corners */
   }
   
   .profile {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+    background-color: white;
+    color: #1b5e20;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 10px; /* Rounded corners */
   }
   
   .profileBubble {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: #1b5e20;
-    margin-right: 10px; /* Dark green background */
+    margin-right: 10px;
   }
   
   .profileInfo h2 {
       margin: 0;
-      color: white; /* white text color */
+      color: white;
       font-family: 'Roboto', sans-serif;
   }
   
