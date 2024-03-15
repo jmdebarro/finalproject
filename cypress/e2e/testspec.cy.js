@@ -81,7 +81,6 @@ describe('Post Item', () => {
   })
 
   it('should fill out and submit the form with a picture', () => {
-    cy.get('input[name="name"]').type('Nintendo 3DS')
     cy.get('textarea[name="description"]').type('This is a Nintendo 3DS, a technology item. It is in good condition.')
     cy.get('select[name="tags"]').select('Technology')
     cy.get('select[name="pickUpType"]').select('Drop Off')
@@ -100,5 +99,37 @@ describe('Post Item', () => {
       })
   
     cy.get('button[type="submit"]').click()
+    cy.wait(1000)
   })
+})
+
+describe('Delete item in', () => {
+  const info = Math.random().toString();
+  beforeEach(() => {
+      cy.visit('https://delightful-island-0985f9e1e.4.azurestaticapps.net/');
+  // Click the menu button to open the sidebar
+  cy.get('#menu').click();
+
+  // Click the 'Settings' button in the sidebar
+  cy.get('button').contains('Settings').click();
+  cy.get('button').contains('Log In').click();
+  cy.get('input[name="username"]').type('nmandke');
+  cy.get('input[name="password"]').type('1234');
+  cy.get('input[type="button"]').click();
+
+  cy.get('#menu').click();
+  cy.wait(1000)
+  cy.get('button').contains('My Profile').click();
+  })
+
+  it('Verify and delete item in MyProfile', () => {
+      cy.get('a').should('exist').and('contain', 'This is a Nintendo 3DS, a technology item. It is in good condition.');
+      cy.contains('a', 'This is a Nintendo 3DS, a technology item. It is in good condition.')
+      .within(() => {
+        cy.get('input').click()
+      });
+      cy.wait(500);
+      cy.get('a').contains('This is a Nintendo 3DS, a technology item. It is in good condition.').should('not.exist');
+  })
+
 })
