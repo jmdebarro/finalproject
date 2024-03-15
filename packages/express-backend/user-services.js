@@ -5,6 +5,7 @@ import { MongoClient, ServerApiVersion } from "mongodb";
 import dotenv from "dotenv";
 dotenv.config();
 
+//stored on azure setup or local .env file
 const uri = process.env.MONGO_URI;
 
 connectToDB()
@@ -26,16 +27,6 @@ async function connectToDB() {
     }
   });
 }
-// Use for local server, but try and get acquainted with cloud DB
-// mongoose.set("debug", true);
-
-// mongoose
-//   .connect("mongodb://localhost:27017/users", {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-//   })
-//   .catch((error) => console.log(error));
-// pushing for azure to deploy
 
 function getUsers(name, job, empId) {
   let promise;

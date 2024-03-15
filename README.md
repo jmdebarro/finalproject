@@ -1,5 +1,5 @@
 # freeStuff
-An app for Cal Poly SLO students to give away and receive items for free
+An app for Cal Poly SLO students to give away and receive items for free. Basic MVP delivered with ability to post items, looks for other items, and delete items once they have transferred hands.
 
 ## Product Vision
  For any person who wants to get or give away free stuff. The website is an app that provides a platform for users to connect with each other. Unlike meeting people in person, our product provides a streamlined, centralized place to browse and post free items. git 

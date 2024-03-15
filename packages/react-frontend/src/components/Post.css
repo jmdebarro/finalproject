@@ -1,67 +1,66 @@
 .post-container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-    background-color: #1b5e20;
-    border-radius: 10px;
-    color: white;
-  }
-  
-  .post-container h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: white;
-    font-family: 'Roboto', sans-serif; /* Cohesive font with navbar */
-  }
-  
-  .post-container form {
-      display: flex;
-      flex-direction: column; 
-      align-items: center;
-  }
-  
-  .post-container form .boxes {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .post-container .box {
-    flex: 1;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .post-container form label {
-      color: white;
-      font-family: 'Roboto', sans-serif; /* Professional and unique font */
-  }
-  
-  .post-container form input[type="text"],
-  .post-container form textarea,
-  .post-container form input[type="file"] {
-      width: 100%;
-      padding: 10px; 
-      margin-bottom: 20px; 
-      border: none;
-      border-radius: 5px;
-      background-color: #aed581; 
-}
-  
-  .post-container form button {
-      padding: 15px 30px;
-      background-color: #aed581;
-      color: #1b5e20;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-family: 'Roboto', sans-serif;
-      font-size: 18px;
-  }
-
-  .post-container form button:hover {
-      background-color: #96cc7e;
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+  background-color: #1b5e20;
+  border-radius: 10px;
+  color: white;
 }
 
+.post-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  font-family: "Roboto", sans-serif; /* Cohesive font with navbar */
+}
+
+.post-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-container form .boxes {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.post-container .box {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.post-container form label {
+  color: white;
+  font-family: "Roboto", sans-serif; /* Professional and unique font */
+}
+
+.post-container form input[type="text"],
+.post-container form textarea,
+.post-container form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #aed581;
+}
+
+.post-container form button {
+  padding: 15px 30px;
+  background-color: #aed581;
+  color: #1b5e20;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+
+.post-container form button:hover {
+  background-color: #ffffff;
+}
