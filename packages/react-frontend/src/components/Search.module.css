@@ -3,6 +3,7 @@
     margin: 0 auto;
     margin-right: 17%;
     padding: 20px;
+    font-family: 'Roboto', sans-serif;
   }
   
   .searchBar {
@@ -21,7 +22,8 @@
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #ddd;
+    background-color: #1b5e20;
+    color: white;
     cursor: pointer;
   }
   
@@ -34,13 +36,18 @@
   .searchBar input {
     flex-grow: 1;
     padding: 10px;
+    border: 1px solid #1b5e20; /* Dark green border */
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
   }
   
   .searchButton {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #ddd;
+    background-color: #1b5e20;
+    color: white;
     cursor: pointer;
     margin-left: 10px;
+    font-family: 'Roboto', sans-serif;
   }
